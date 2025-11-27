@@ -1,0 +1,37 @@
+Kp_x: 1.0 #0.5 #0.12
+Kd_x: 2.0 #0.5 #0.005
+Ki_x: 0.0
+Kp_vel_x: 2.5
+Kd_vel_x: 0.0
+Ki_vel_x: 1.0
+acc_x_max: 3.0
+alpha_x: 0.0
+
+Kp_y: 1.0 #0.5 #0.12
+Kd_y: 2.0 #0.5 #0.005
+Ki_y: 0.0
+Kp_vel_y: 2.5
+Kd_vel_y: 0.0
+Ki_vel_y: 1.0
+acc_y_max: 3.0
+alpha_y: 0.0
+
+Kp_z: 1.0 #0.5 #0.05
+Kd_z: 2.0 #0.7 #0.01
+Ki_z: 0.0
+Kp_vel_z: 2.5
+Kd_vel_z: 0.0
+Ki_vel_z: 0.2
+acc_z_max: 5.0
+alpha_z: 0.0
+
+antiwindup_radius_pos: [0.2, 0.2, 0.2]
+integrator_pos_max: [0.65, 0.65, 0.65]
+
+antiwindup_radius_vel: [0.2, 0.2, 0.4]
+integrator_vel_max: [0.65, 0.65, 1.0]
+
+use_vehicle_frame: true # Acceleration command is in vehicle frame (true) or world frame (false)
+use_yaw_stabilize: true # true: stabilizes yaw angle around 0 or false: control yaw_rate based on command/rate_thrust -->
+K_yaw: 2.4 #1.8 # used only if use_yaw_stabilize = true
+yaw_rate_limit: 90 # used only if use_yaw_stabilize = true

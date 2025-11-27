@@ -1,0 +1,289 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<robot name="tree_35.urdf">
+  <link name="branch_0">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+    <visual name="branch_0_visual">
+      <geometry>
+        <cylinder radius="0.17281251612219467" length="11.781987831568147"/>
+      </geometry>
+      <material name="branch_material"/>
+      <origin xyz="0.30923097264299315 0.5812373137813293 5.854088204531214" rpy="6.938893903907228e-18 0.11199393156260055 1.0818605784850175"/>
+    </visual>
+    <collision name="branch_0_collision">
+      <geometry>
+        <cylinder radius="0.17281251612219467" length="11.781987831568147"/>
+      </geometry>
+      <origin xyz="0.30923097264299315 0.5812373137813293 5.854088204531214" rpy="6.938893903907228e-18 0.11199393156260055 1.0818605784850175"/>
+    </collision>
+  </link>
+  <link name="branch_1">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+    <visual name="branch_1_visual">
+      <geometry>
+        <cylinder radius="0.06662708268473544" length="3.2222090157283136"/>
+      </geometry>
+      <material name="semantic_material"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision name="branch_1_collision">
+      <geometry>
+        <cylinder radius="0.06662708268473544" length="3.2222090157283136"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="branch_2">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+    <visual name="branch_2_visual">
+      <geometry>
+        <cylinder radius="0.02242124012960376" length="0.4304683368627594"/>
+      </geometry>
+      <material name="semantic_material"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision name="branch_2_collision">
+      <geometry>
+        <cylinder radius="0.02242124012960376" length="0.4304683368627594"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="branch_3">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+    <visual name="branch_3_visual">
+      <geometry>
+        <cylinder radius="0.042496258016515104" length="3.2408282495725325"/>
+      </geometry>
+      <material name="semantic_material"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision name="branch_3_collision">
+      <geometry>
+        <cylinder radius="0.042496258016515104" length="3.2408282495725325"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="branch_4">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+    <visual name="branch_4_visual">
+      <geometry>
+        <cylinder radius="0.012256790819382522" length="0.9257433172745453"/>
+      </geometry>
+      <material name="semantic_material"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision name="branch_4_collision">
+      <geometry>
+        <cylinder radius="0.012256790819382522" length="0.9257433172745453"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="branch_5">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+    <visual name="branch_5_visual">
+      <geometry>
+        <cylinder radius="0.05863759270608225" length="1.601478747942819"/>
+      </geometry>
+      <material name="semantic_material"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision name="branch_5_collision">
+      <geometry>
+        <cylinder radius="0.05863759270608225" length="1.601478747942819"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="branch_6">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+    <visual name="branch_6_visual">
+      <geometry>
+        <cylinder radius="0.02140080327582311" length="0.23647142903980306"/>
+      </geometry>
+      <material name="semantic_material"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision name="branch_6_collision">
+      <geometry>
+        <cylinder radius="0.02140080327582311" length="0.23647142903980306"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="branch_7">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+    <visual name="branch_7_visual">
+      <geometry>
+        <cylinder radius="0.04051167022386662" length="1.415937256155215"/>
+      </geometry>
+      <material name="semantic_material"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision name="branch_7_collision">
+      <geometry>
+        <cylinder radius="0.04051167022386662" length="1.415937256155215"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="branch_8">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+    <visual name="branch_8_visual">
+      <geometry>
+        <cylinder radius="0.013027431415242175" length="0.2555912185503097"/>
+      </geometry>
+      <material name="semantic_material"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision name="branch_8_collision">
+      <geometry>
+        <cylinder radius="0.013027431415242175" length="0.2555912185503097"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="branch_9">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+    <visual name="branch_9_visual">
+      <geometry>
+        <cylinder radius="0.0523091656155911" length="3.4015759633831024"/>
+      </geometry>
+      <material name="semantic_material"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision name="branch_9_collision">
+      <geometry>
+        <cylinder radius="0.0523091656155911" length="3.4015759633831024"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="branch_10">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+    <visual name="branch_10_visual">
+      <geometry>
+        <cylinder radius="0.01603352755004943" length="0.4193769244323671"/>
+      </geometry>
+      <material name="semantic_material"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision name="branch_10_collision">
+      <geometry>
+        <cylinder radius="0.01603352755004943" length="0.4193769244323671"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <joint name="joint_0_1" type="fixed">
+    <parent link="branch_0"/>
+    <child link="branch_1"/>
+    <axis xyz="1. 0. 0."/>
+    <origin xyz="0.27035075931106006 -1.1848366544919495 3.7454344075298036" rpy="-0.15743763455383528 1.196729228028892 -1.6709658048090013"/>
+  </joint>
+  <joint name="joint_0_3" type="fixed">
+    <parent link="branch_0"/>
+    <child link="branch_3"/>
+    <axis xyz="1. 0. 0."/>
+    <origin xyz="1.4037129549712224 1.6223424515015938 5.06750657257499" rpy="-0.3230811565168166 1.4646476197790117 0.4565505086884354"/>
+  </joint>
+  <joint name="joint_0_5" type="fixed">
+    <parent link="branch_0"/>
+    <child link="branch_5"/>
+    <axis xyz="1. 0. 0."/>
+    <origin xyz="-0.5637499145193002 0.5859830940694505 4.091306890243928" rpy="1.7040354183945872 1.4616336919260697 -1.6633228577271637"/>
+  </joint>
+  <joint name="joint_0_7" type="fixed">
+    <parent link="branch_0"/>
+    <child link="branch_7"/>
+    <axis xyz="1. 0. 0."/>
+    <origin xyz="0.47620960366615006 -0.18487243504784023 4.712964562026346" rpy="-0.26697980750737005 1.2537466029443667 -1.4900507118372652"/>
+  </joint>
+  <joint name="joint_0_9" type="fixed">
+    <parent link="branch_0"/>
+    <child link="branch_9"/>
+    <axis xyz="1. 0. 0."/>
+    <origin xyz="1.0115097966221354 -0.8151953509283608 7.875701587966733" rpy="-0.6671936420386164 1.4348143121478325 -1.8766066231049185"/>
+  </joint>
+  <joint name="joint_1_2" type="fixed">
+    <parent link="branch_0"/>
+    <child link="branch_2"/>
+    <axis xyz="1. 0. 0."/>
+    <origin xyz="0.13248329985961818 -1.7894181977732218 4.053833309092304" rpy="-1.066877941233339 0.17054308323089873 2.0631021213862453"/>
+  </joint>
+  <joint name="joint_3_4" type="fixed">
+    <parent link="branch_0"/>
+    <child link="branch_4"/>
+    <axis xyz="1. 0. 0."/>
+    <origin xyz="1.1415878857567572 1.5455018636614881 4.60407786420257" rpy="2.8531872576478516 -0.06609427652299697 -2.310774589950731"/>
+  </joint>
+  <joint name="joint_5_6" type="fixed">
+    <parent link="branch_0"/>
+    <child link="branch_6"/>
+    <axis xyz="1. 0. 0."/>
+    <origin xyz="-0.6340876502314137 0.4932013265704162 4.074012374540321" rpy="1.7179486810534161 0.0514166810878603 -0.6510159006579942"/>
+  </joint>
+  <joint name="joint_7_8" type="fixed">
+    <parent link="branch_0"/>
+    <child link="branch_8"/>
+    <axis xyz="1. 0. 0."/>
+    <origin xyz="0.4897842416537696 -0.16428973165005062 4.595023329073841" rpy="2.8826064202717028 0.8280601034606518 1.7945654886051958"/>
+  </joint>
+  <joint name="joint_9_10" type="fixed">
+    <parent link="branch_0"/>
+    <child link="branch_10"/>
+    <axis xyz="1. 0. 0."/>
+    <origin xyz="1.0552794106688752 -0.6273224218221495 8.035277246078683" rpy="0.5487578958776443 -0.04750452525068464 1.8422401990278496"/>
+  </joint>
+  <material name="branch_material">
+    <color rgba="1. 1. 1. 1."/>
+  </material>
+  <material name="semantic_material">
+    <color rgba="1. 0. 0. 1."/>
+  </material>
+</robot>

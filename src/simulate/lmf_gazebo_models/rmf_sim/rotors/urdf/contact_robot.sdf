@@ -1,0 +1,661 @@
+<sdf version='1.6'>
+  <model name='asymmetric_quadrotor'>
+    <link name='delta/base_link'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.0102411</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0102411</iyy>
+          <iyz>0</iyz>
+          <izz>0.020264</izz>
+        </inertia>
+      </inertial>
+      <collision name='delta/base_link_fixed_joint_lump__delta_collision_collision'>
+        <pose frame=''>0 0 0.0565 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.113</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='delta/base_link_fixed_joint_lump__base_collision_collision_1'>
+        <pose frame=''>0 0 0.1365 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.073</length>
+            <radius>0.04</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='delta/base_link_inertia_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://rmf_sim/rotors/meshes/delta/delta.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='delta/base_link_fixed_joint_lump__base_visual_visual_1'>
+        <pose frame=''>0 0 0.1 0 -0 1.5707</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://lidar_description/meshes/Ouster/ouster.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <velocity_decay/>
+      <sensor name='delta_contact_sensor' type='contact'>
+        <always_on>1</always_on>
+        <contact>
+          <collision>delta/base_link_fixed_joint_lump__delta_collision_collision</collision>
+          <topic>__default_topic__</topic>
+        </contact>
+        <plugin name='delta_collision_plugin' filename='libgazebo_ros_bumper.so'>
+          <bumperTopicName>delta_contact</bumperTopicName>
+          <frameName>world</frameName>
+        </plugin>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+      </sensor>
+      <velocity_decay/>
+      <sensor name='delta/os1-OS1-64' type='ray'>
+        <visualize>0</visualize>
+        <update_rate>10</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>220</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.14159</min_angle>
+              <max_angle>3.14159</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>64</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.289917</min_angle>
+              <max_angle>0.289917</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.225</min>
+            <max>100</max>
+            <resolution>0.03</resolution>
+          </range>
+        </ray>
+        <plugin name='gazebo_ros_laser_controller' filename='libgazebo_ros_lidar.so'>
+          <topicName>/os1_points</topicName>
+          <frameName>delta/os1</frameName>
+          <min_range>0.225</min_range>
+          <max_range>100.0</max_range>
+          <gaussianNoise>0.008</gaussianNoise>
+        </plugin>
+        <pose frame=''>0 0 0.1 0 -0 0</pose>
+      </sensor>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <link name='delta/imu_link'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.015</mass>
+        <inertia>
+          <ixx>1e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1e-05</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name='delta/imu_joint' type='revolute'>
+      <child>delta/imu_link</child>
+      <parent>delta/base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='delta/imugt_link'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>1e-05</mass>
+        <inertia>
+          <ixx>1e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1e-05</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name='delta/imugt_joint' type='revolute'>
+      <child>delta/imugt_link</child>
+      <parent>delta/base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='delta/odometry_sensor1_link'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>1e-05</mass>
+        <inertia>
+          <ixx>1e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1e-05</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name='delta/odometry_sensor1_joint' type='revolute'>
+      <child>delta/odometry_sensor1_link</child>
+      <parent>delta/base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='delta/odometry_sensorgt_link'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>1e-05</mass>
+        <inertia>
+          <ixx>1e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1e-05</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name='delta/odometry_sensorgt_joint' type='revolute'>
+      <child>delta/odometry_sensorgt_link</child>
+      <parent>delta/base_link</parent>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='delta/rotor_0'>
+      <pose frame=''>0.07 -0.075 0.027 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.003</mass>
+        <inertia>
+          <ixx>5.85e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>7.045e-06</iyy>
+          <iyz>0</iyz>
+          <izz>7.585e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='delta/rotor_0_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.005</length>
+            <radius>0.053</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='delta/rotor_0_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.053 0.053 0.053</scale>
+            <uri>model://rotors_description/meshes/propeller_ccw.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Red</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='delta/rotor_0_joint' type='revolute'>
+      <child>delta/rotor_0</child>
+      <parent>delta/base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='delta/rotor_1'>
+      <pose frame=''>-0.06631 0.075627 0.027 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.003</mass>
+        <inertia>
+          <ixx>5.85e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>7.045e-06</iyy>
+          <iyz>0</iyz>
+          <izz>7.585e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='delta/rotor_1_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.005</length>
+            <radius>0.053</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='delta/rotor_1_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.053 0.053 0.053</scale>
+            <uri>model://rotors_description/meshes/propeller_ccw.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='delta/rotor_1_joint' type='revolute'>
+      <child>delta/rotor_1</child>
+      <parent>delta/base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='delta/rotor_2'>
+      <pose frame=''>0.07 0.075 0.027 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.003</mass>
+        <inertia>
+          <ixx>5.85e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>7.045e-06</iyy>
+          <iyz>0</iyz>
+          <izz>7.585e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='delta/rotor_2_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.005</length>
+            <radius>0.053</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='delta/rotor_2_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.053 0.053 0.053</scale>
+            <uri>model://rotors_description/meshes/propeller_cw.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Red</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='delta/rotor_2_joint' type='revolute'>
+      <child>delta/rotor_2</child>
+      <parent>delta/base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='delta/rotor_3'>
+      <pose frame=''>-0.07 -0.075 0.027 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>0.003</mass>
+        <inertia>
+          <ixx>5.85e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>7.045e-06</iyy>
+          <iyz>0</iyz>
+          <izz>7.585e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='delta/rotor_3_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.005</length>
+            <radius>0.053</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='delta/rotor_3_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.053 0.053 0.053</scale>
+            <uri>model://rotors_description/meshes/propeller_cw.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+    </link>
+    <joint name='delta/rotor_3_joint' type='revolute'>
+      <child>delta/rotor_3</child>
+      <parent>delta/base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <plugin name='multirotor_base_plugin' filename='librotors_gazebo_multirotor_base_plugin.so'>
+      <robotNamespace>delta</robotNamespace>
+      <linkName>delta/base_link</linkName>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+    </plugin>
+    <plugin name='delta_front_right_motor_model' filename='librotors_gazebo_motor_model.so'>
+      <robotNamespace>delta</robotNamespace>
+      <jointName>delta/rotor_0_joint</jointName>
+      <linkName>delta/rotor_0</linkName>
+      <turningDirection>ccw</turningDirection>
+      <timeConstantUp>0.0125</timeConstantUp>
+      <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>2000.0</maxRotVelocity>
+      <motorConstant>0.02246</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <motorNumber>0</motorNumber>
+      <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <motorSpeedPubTopic>motor_speed/0</motorSpeedPubTopic>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+    </plugin>
+    <plugin name='delta_front_left_motor_model' filename='librotors_gazebo_motor_model.so'>
+      <robotNamespace>delta</robotNamespace>
+      <jointName>delta/rotor_2_joint</jointName>
+      <linkName>delta/rotor_2</linkName>
+      <turningDirection>cw</turningDirection>
+      <timeConstantUp>0.0125</timeConstantUp>
+      <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>2000.0</maxRotVelocity>
+      <motorConstant>0.02246</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <motorNumber>2</motorNumber>
+      <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <motorSpeedPubTopic>motor_speed/2</motorSpeedPubTopic>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+    </plugin>
+    <plugin name='delta_back_left_motor_model' filename='librotors_gazebo_motor_model.so'>
+      <robotNamespace>delta</robotNamespace>
+      <jointName>delta/rotor_1_joint</jointName>
+      <linkName>delta/rotor_1</linkName>
+      <turningDirection>ccw</turningDirection>
+      <timeConstantUp>0.0125</timeConstantUp>
+      <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>2000.0</maxRotVelocity>
+      <motorConstant>0.02246</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <motorNumber>1</motorNumber>
+      <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <motorSpeedPubTopic>motor_speed/1</motorSpeedPubTopic>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+    </plugin>
+    <plugin name='delta_back_right_motor_model' filename='librotors_gazebo_motor_model.so'>
+      <robotNamespace>delta</robotNamespace>
+      <jointName>delta/rotor_3_joint</jointName>
+      <linkName>delta/rotor_3</linkName>
+      <turningDirection>cw</turningDirection>
+      <timeConstantUp>0.0125</timeConstantUp>
+      <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>2000.0</maxRotVelocity>
+      <motorConstant>0.02246</motorConstant>
+      <momentConstant>0.016</momentConstant>
+      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <motorNumber>3</motorNumber>
+      <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <motorSpeedPubTopic>motor_speed/3</motorSpeedPubTopic>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+    </plugin>
+    <plugin name='controller_interface' filename='librotors_gazebo_controller_interface.so'>
+      <robotNamespace>delta</robotNamespace>
+      <commandAttitudeThrustSubTopic>command/attitude</commandAttitudeThrustSubTopic>
+      <commandRateThrustSubTopic>command/rate</commandRateThrustSubTopic>
+      <commandMotorSpeedSubTopic>command/motor_speed</commandMotorSpeedSubTopic>
+      <imuSubTopic>imu</imuSubTopic>
+      <motorSpeedCommandPubTopic>gazebo/command/motor_speed</motorSpeedCommandPubTopic>
+    </plugin>
+    <plugin name='rotors_gazebo_imu_plugin' filename='librotors_gazebo_imu_plugin.so'>
+      <robotNamespace>delta</robotNamespace>
+      <linkName>delta/imu_link</linkName>
+      <imuTopic>imu</imuTopic>
+      <gyroscopeNoiseDensity>0.0003394</gyroscopeNoiseDensity>
+      <gyroscopeRandomWalk>3.8785e-05</gyroscopeRandomWalk>
+      <gyroscopeBiasCorrelationTime>1000.0</gyroscopeBiasCorrelationTime>
+      <gyroscopeTurnOnBiasSigma>0.0087</gyroscopeTurnOnBiasSigma>
+      <accelerometerNoiseDensity>0.004</accelerometerNoiseDensity>
+      <accelerometerRandomWalk>0.006</accelerometerRandomWalk>
+      <accelerometerBiasCorrelationTime>300.0</accelerometerBiasCorrelationTime>
+      <accelerometerTurnOnBiasSigma>0.196</accelerometerTurnOnBiasSigma>
+    </plugin>
+    <plugin name='rotors_gazebo_imugt_plugin' filename='librotors_gazebo_imu_plugin.so'>
+      <robotNamespace>delta</robotNamespace>
+      <linkName>delta/imugt_link</linkName>
+      <imuTopic>ground_truth/imu</imuTopic>
+      <gyroscopeNoiseDensity>0.0</gyroscopeNoiseDensity>
+      <gyroscopeRandomWalk>0.0</gyroscopeRandomWalk>
+      <gyroscopeBiasCorrelationTime>1000.0</gyroscopeBiasCorrelationTime>
+      <gyroscopeTurnOnBiasSigma>0.0</gyroscopeTurnOnBiasSigma>
+      <accelerometerNoiseDensity>0.0</accelerometerNoiseDensity>
+      <accelerometerRandomWalk>0.0</accelerometerRandomWalk>
+      <accelerometerBiasCorrelationTime>300.0</accelerometerBiasCorrelationTime>
+      <accelerometerTurnOnBiasSigma>0.0</accelerometerTurnOnBiasSigma>
+    </plugin>
+    <plugin name='odometry_sensorgt' filename='librotors_gazebo_odometry_plugin.so'>
+      <linkName>delta/odometry_sensorgt_link</linkName>
+      <robotNamespace>delta</robotNamespace>
+      <poseTopic>ground_truth/pose</poseTopic>
+      <poseWithCovarianceTopic>ground_truth/pose_with_covariance</poseWithCovarianceTopic>
+      <positionTopic>ground_truth/position</positionTopic>
+      <transformTopic>ground_truth/transform</transformTopic>
+      <odometryTopic>ground_truth/odometry</odometryTopic>
+      <parentFrameId>world</parentFrameId>
+      <childFrameId>delta/base_link</childFrameId>
+      <measurementDivisor>1</measurementDivisor>
+      <measurementDelay>0</measurementDelay>
+      <unknownDelay>0.0</unknownDelay>
+      <noiseNormalPosition>0 0 0</noiseNormalPosition>
+      <noiseNormalQuaternion>0 0 0</noiseNormalQuaternion>
+      <noiseNormalLinearVelocity>0 0 0</noiseNormalLinearVelocity>
+      <noiseNormalAngularVelocity>0 0 0</noiseNormalAngularVelocity>
+      <noiseUniformPosition>0 0 0</noiseUniformPosition>
+      <noiseUniformQuaternion>0 0 0</noiseUniformQuaternion>
+      <noiseUniformLinearVelocity>0 0 0</noiseUniformLinearVelocity>
+      <noiseUniformAngularVelocity>0 0 0</noiseUniformAngularVelocity>
+    </plugin>
+    <plugin name='odometry_sensor1' filename='librotors_gazebo_odometry_plugin.so'>
+      <linkName>delta/odometry_sensor1_link</linkName>
+      <robotNamespace>delta</robotNamespace>
+      <poseTopic>odometry_sensor1/pose</poseTopic>
+      <poseWithCovarianceTopic>odometry_sensor1/pose_with_covariance</poseWithCovarianceTopic>
+      <positionTopic>odometry_sensor1/position</positionTopic>
+      <transformTopic>odometry_sensor1/transform</transformTopic>
+      <odometryTopic>odometry_sensor1/odometry</odometryTopic>
+      <parentFrameId>world</parentFrameId>
+      <childFrameId>delta/odometry_sensor1</childFrameId>
+      <measurementDivisor>1</measurementDivisor>
+      <measurementDelay>0</measurementDelay>
+      <unknownDelay>0.0</unknownDelay>
+      <noiseNormalPosition>0 0 0</noiseNormalPosition>
+      <noiseNormalQuaternion>0 0 0</noiseNormalQuaternion>
+      <noiseNormalLinearVelocity>0 0 0</noiseNormalLinearVelocity>
+      <noiseNormalAngularVelocity>0 0 0</noiseNormalAngularVelocity>
+      <noiseUniformPosition>0 0 0</noiseUniformPosition>
+      <noiseUniformQuaternion>0 0 0</noiseUniformQuaternion>
+      <noiseUniformLinearVelocity>0 0 0</noiseUniformLinearVelocity>
+      <noiseUniformAngularVelocity>0 0 0</noiseUniformAngularVelocity>
+    </plugin>
+    <static>0</static>
+    <plugin name='imu_controller' filename='libhector_gazebo_ros_imu.so'>
+      <robotNamespace>/</robotNamespace>
+      <updateRate>100.0</updateRate>
+      <topicName>/os1_cloud_node/imu</topicName>
+      <accelDrift>0.005 0.005 0.005</accelDrift>
+      <accelGaussianNoise>0.005 0.005 0.005</accelGaussianNoise>
+      <rateDrift>0.005 0.005 0.005</rateDrift>
+      <rateGaussianNoise>0.005 0.005 0.005</rateGaussianNoise>
+      <headingDrift>0.005</headingDrift>
+      <headingGaussianNoise>0.005</headingGaussianNoise>
+      <bodyName>delta/base_link</bodyName>
+      <xyzOffset>-0.006253 0.011775 -0.107645</xyzOffset>
+      <rpyOffset>0 -0 0</rpyOffset>
+    </plugin>
+  </model>
+</sdf>

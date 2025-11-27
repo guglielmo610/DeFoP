@@ -1,0 +1,5134 @@
+<sdf version='1.6'>
+  <world name='default'>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>1000 1000</size>
+            </plane>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>1000 1000</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose frame=''>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    <scene>
+      <shadows>0</shadows>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+    </scene>
+    <plugin name='ros_interface_plugin' filename='librotors_gazebo_ros_interface_plugin.so'/>
+    <physics name='default_physics' default='0' type='ode'>
+      <max_step_size>0.005</max_step_size>
+      <real_time_factor>10</real_time_factor>
+      <real_time_update_rate>600</real_time_update_rate>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>1000</iters>
+          <sor>1.3</sor>
+          <use_dynamic_moi_rescaling>0</use_dynamic_moi_rescaling>
+        </solver>
+        <constraints>
+          <cfm>0</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>100</contact_max_correcting_vel>
+          <contact_surface_layer>0.001</contact_surface_layer>
+        </constraints>
+      </ode>
+    </physics>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <audio>
+      <device>default</device>
+    </audio>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <state world_name='default'>
+      <sim_time>17677 560000000</sim_time>
+      <real_time>405 875928026</real_time>
+      <wall_time>1634036757 109616523</wall_time>
+      <iterations>228284</iterations>
+      <model name='tree_0'>
+        <pose frame=''>-44.6003 10.3851 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-44.6003 10.3851 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='tree_1'>
+        <pose frame=''>-44.6003 15.3851 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-44.6003 15.3851 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='tree_2'>
+        <pose frame=''>-44.6003 20.3851 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-44.6003 20.3851 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='tree_3'>
+        <pose frame=''>-44.6003 25.3851 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-44.6003 25.3851 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='tree_4'>
+        <pose frame=''>-44.6003 30.3851 0 0 -0 0</pose>
+        <scale>0.7 0.7 0.7</scale>
+        <link name='link'>
+          <pose frame=''>-44.6003 30.3851 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='tree_5'>
+        <pose frame=''>-44.6003 35.3851 0 0 -0 0</pose>
+        <scale>0.7 0.7 0.7</scale>
+        <link name='link'>
+          <pose frame=''>-44.6003 35.3851 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='tree_6'>
+        <pose frame=''>-44.6003 40.3851 0 0 -0 0</pose>
+        <scale>0.7 0.7 0.7</scale>
+        <link name='link'>
+          <pose frame=''>-44.6003 40.3851 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='tree_7'>
+        <pose frame=''>-44.6003 45.3851 0 0 -0 0</pose>
+        <scale>0.7 0.7 0.7</scale>
+        <link name='link'>
+          <pose frame=''>-44.6003 45.3851 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='unit_sphere_0'>
+        <pose frame=''>-5 10 1.75 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-5 10 1.75 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='unit_sphere_1'>
+        <pose frame=''>-5 14 1.5 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-5 14 1.5 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='unit_sphere_2'>
+        <pose frame=''>-5 18 1.75 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-5 18 1.75 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='unit_sphere_3'>
+        <pose frame=''>-5 22 2.3 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-5 22 2.3 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='unit_sphere_4'>
+        <pose frame=''>-5 26 1.8 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-5 26 1.8 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='unit_sphere_5'>
+        <pose frame=''>-5 30 1.75 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-5 30 1.75 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='unit_sphere_6'>
+        <pose frame=''>-5 34 2.75 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-5 34 2.75 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='unit_sphere_7'>
+        <pose frame=''>-5 38 2.25 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-5 38 2.25 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='unit_sphere_8'>
+        <pose frame=''>-5 42 2.3 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-5 42 2.3 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='unit_sphere_9'>
+        <pose frame=''>-5 46 2 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-5 46 2 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose frame=''>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>12.0944 32.4394 109.565 0 1.39779 -3.1268</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+    <model name="wall_top">
+      <static>1</static>
+      <link name="link">
+        <pose frame="">0 0 0.1 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>42.0 42.0 0.2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>42.0 42.0 0.2</size>
+            </box>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame="">20.0 20.0 10.0 0 0 0</pose>
+    </model>    
+    <include>
+      <name>thin_tree_0</name>
+      <uri>model://tree_0</uri>
+      <pose>-15.0 0 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_1</name>
+      <uri>model://tree_1</uri>
+      <pose>-15.0 1 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_2</name>
+      <uri>model://tree_2</uri>
+      <pose>-15.0 2 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_3</name>
+      <uri>model://tree_3</uri>
+      <pose>-15.0 3 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_4</name>
+      <uri>model://tree_4</uri>
+      <pose>-15.0 4 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_5</name>
+      <uri>model://tree_5</uri>
+      <pose>-15.0 5 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_6</name>
+      <uri>model://tree_6</uri>
+      <pose>-15.0 6 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_7</name>
+      <uri>model://tree_7</uri>
+      <pose>-15.0 7 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_8</name>
+      <uri>model://tree_8</uri>
+      <pose>-15.0 8 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_9</name>
+      <uri>model://tree_9</uri>
+      <pose>-15.0 9 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_10</name>
+      <uri>model://tree_10</uri>
+      <pose>-15.0 10 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_11</name>
+      <uri>model://tree_11</uri>
+      <pose>-15.0 11 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_12</name>
+      <uri>model://tree_12</uri>
+      <pose>-15.0 12 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_13</name>
+      <uri>model://tree_13</uri>
+      <pose>-15.0 13 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_14</name>
+      <uri>model://tree_14</uri>
+      <pose>-15.0 14 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_15</name>
+      <uri>model://tree_15</uri>
+      <pose>-15.0 15 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_16</name>
+      <uri>model://tree_16</uri>
+      <pose>-15.0 16 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_17</name>
+      <uri>model://tree_17</uri>
+      <pose>-15.0 17 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_18</name>
+      <uri>model://tree_18</uri>
+      <pose>-15.0 18 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_19</name>
+      <uri>model://tree_19</uri>
+      <pose>-15.0 19 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_20</name>
+      <uri>model://tree_20</uri>
+      <pose>-15.0 20 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_21</name>
+      <uri>model://tree_21</uri>
+      <pose>-15.0 21 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_22</name>
+      <uri>model://tree_22</uri>
+      <pose>-15.0 22 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_23</name>
+      <uri>model://tree_23</uri>
+      <pose>-15.0 23 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_24</name>
+      <uri>model://tree_24</uri>
+      <pose>-15.0 24 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_25</name>
+      <uri>model://tree_25</uri>
+      <pose>-15.0 25 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_26</name>
+      <uri>model://tree_26</uri>
+      <pose>-15.0 26 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_27</name>
+      <uri>model://tree_27</uri>
+      <pose>-15.0 27 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_28</name>
+      <uri>model://tree_28</uri>
+      <pose>-15.0 28 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_29</name>
+      <uri>model://tree_29</uri>
+      <pose>-15.0 29 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_30</name>
+      <uri>model://tree_30</uri>
+      <pose>-15.0 30 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_31</name>
+      <uri>model://tree_31</uri>
+      <pose>-15.0 31 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_32</name>
+      <uri>model://tree_32</uri>
+      <pose>-15.0 32 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_33</name>
+      <uri>model://tree_33</uri>
+      <pose>-15.0 33 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_34</name>
+      <uri>model://tree_34</uri>
+      <pose>-15.0 34 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_35</name>
+      <uri>model://tree_35</uri>
+      <pose>-15.0 35 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_36</name>
+      <uri>model://tree_36</uri>
+      <pose>-15.0 36 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_37</name>
+      <uri>model://tree_37</uri>
+      <pose>-15.0 37 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_38</name>
+      <uri>model://tree_38</uri>
+      <pose>-15.0 38 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_39</name>
+      <uri>model://tree_39</uri>
+      <pose>-15.0 39 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_40</name>
+      <uri>model://tree_40</uri>
+      <pose>-15.0 40 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_41</name>
+      <uri>model://tree_41</uri>
+      <pose>-15.0 41 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_42</name>
+      <uri>model://tree_42</uri>
+      <pose>-15.0 42 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_43</name>
+      <uri>model://tree_43</uri>
+      <pose>-15.0 43 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_44</name>
+      <uri>model://tree_44</uri>
+      <pose>-15.0 44 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_45</name>
+      <uri>model://tree_45</uri>
+      <pose>-15.0 45 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_46</name>
+      <uri>model://tree_46</uri>
+      <pose>-15.0 46 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_47</name>
+      <uri>model://tree_47</uri>
+      <pose>-15.0 47 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_48</name>
+      <uri>model://tree_48</uri>
+      <pose>-15.0 48 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_49</name>
+      <uri>model://tree_49</uri>
+      <pose>-15.0 49 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_50</name>
+      <uri>model://tree_50</uri>
+      <pose>-15.0 50 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_51</name>
+      <uri>model://tree_51</uri>
+      <pose>-15.0 51 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_52</name>
+      <uri>model://tree_52</uri>
+      <pose>-15.0 52 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_53</name>
+      <uri>model://tree_53</uri>
+      <pose>-15.0 53 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_54</name>
+      <uri>model://tree_54</uri>
+      <pose>-15.0 54 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_55</name>
+      <uri>model://tree_55</uri>
+      <pose>-15.0 55 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_56</name>
+      <uri>model://tree_56</uri>
+      <pose>-15.0 56 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_57</name>
+      <uri>model://tree_57</uri>
+      <pose>-15.0 57 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_58</name>
+      <uri>model://tree_58</uri>
+      <pose>-15.0 58 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_59</name>
+      <uri>model://tree_59</uri>
+      <pose>-15.0 59 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_60</name>
+      <uri>model://tree_60</uri>
+      <pose>-15.0 60 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_61</name>
+      <uri>model://tree_61</uri>
+      <pose>-15.0 61 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_62</name>
+      <uri>model://tree_62</uri>
+      <pose>-15.0 62 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_63</name>
+      <uri>model://tree_63</uri>
+      <pose>-15.0 63 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_64</name>
+      <uri>model://tree_64</uri>
+      <pose>-15.0 64 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_65</name>
+      <uri>model://tree_65</uri>
+      <pose>-15.0 65 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_66</name>
+      <uri>model://tree_66</uri>
+      <pose>-15.0 66 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_67</name>
+      <uri>model://tree_67</uri>
+      <pose>-15.0 67 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_68</name>
+      <uri>model://tree_68</uri>
+      <pose>-15.0 68 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_69</name>
+      <uri>model://tree_69</uri>
+      <pose>-15.0 69 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_70</name>
+      <uri>model://tree_70</uri>
+      <pose>-15.0 70 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_71</name>
+      <uri>model://tree_71</uri>
+      <pose>-15.0 71 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_72</name>
+      <uri>model://tree_72</uri>
+      <pose>-15.0 72 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_73</name>
+      <uri>model://tree_73</uri>
+      <pose>-15.0 73 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_74</name>
+      <uri>model://tree_74</uri>
+      <pose>-15.0 74 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_75</name>
+      <uri>model://tree_75</uri>
+      <pose>-15.0 75 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_76</name>
+      <uri>model://tree_76</uri>
+      <pose>-15.0 76 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_77</name>
+      <uri>model://tree_77</uri>
+      <pose>-15.0 77 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_78</name>
+      <uri>model://tree_78</uri>
+      <pose>-15.0 78 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_79</name>
+      <uri>model://tree_79</uri>
+      <pose>-15.0 79 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_80</name>
+      <uri>model://tree_80</uri>
+      <pose>-15.0 80 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_81</name>
+      <uri>model://tree_81</uri>
+      <pose>-15.0 81 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_82</name>
+      <uri>model://tree_82</uri>
+      <pose>-15.0 82 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_83</name>
+      <uri>model://tree_83</uri>
+      <pose>-15.0 83 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_84</name>
+      <uri>model://tree_84</uri>
+      <pose>-15.0 84 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_85</name>
+      <uri>model://tree_85</uri>
+      <pose>-15.0 85 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_86</name>
+      <uri>model://tree_86</uri>
+      <pose>-15.0 86 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_87</name>
+      <uri>model://tree_87</uri>
+      <pose>-15.0 87 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_88</name>
+      <uri>model://tree_88</uri>
+      <pose>-15.0 88 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_89</name>
+      <uri>model://tree_89</uri>
+      <pose>-15.0 89 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_90</name>
+      <uri>model://tree_90</uri>
+      <pose>-15.0 90 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_91</name>
+      <uri>model://tree_91</uri>
+      <pose>-15.0 91 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_92</name>
+      <uri>model://tree_92</uri>
+      <pose>-15.0 92 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_93</name>
+      <uri>model://tree_93</uri>
+      <pose>-15.0 93 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_94</name>
+      <uri>model://tree_94</uri>
+      <pose>-15.0 94 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_95</name>
+      <uri>model://tree_95</uri>
+      <pose>-15.0 95 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_96</name>
+      <uri>model://tree_96</uri>
+      <pose>-15.0 96 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_97</name>
+      <uri>model://tree_97</uri>
+      <pose>-15.0 97 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_98</name>
+      <uri>model://tree_98</uri>
+      <pose>-15.0 98 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_99</name>
+      <uri>model://tree_99</uri>
+      <pose>-15.0 99 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_100</name>
+      <uri>model://tree_100</uri>
+      <pose>-15.0 100 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_101</name>
+      <uri>model://tree_101</uri>
+      <pose>-15.0 101 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_102</name>
+      <uri>model://tree_102</uri>
+      <pose>-15.0 102 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_103</name>
+      <uri>model://tree_103</uri>
+      <pose>-15.0 103 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_104</name>
+      <uri>model://tree_104</uri>
+      <pose>-15.0 104 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_105</name>
+      <uri>model://tree_105</uri>
+      <pose>-15.0 105 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_106</name>
+      <uri>model://tree_106</uri>
+      <pose>-15.0 106 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_107</name>
+      <uri>model://tree_107</uri>
+      <pose>-15.0 107 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_108</name>
+      <uri>model://tree_108</uri>
+      <pose>-15.0 108 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_109</name>
+      <uri>model://tree_109</uri>
+      <pose>-15.0 109 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_110</name>
+      <uri>model://tree_110</uri>
+      <pose>-15.0 110 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_111</name>
+      <uri>model://tree_111</uri>
+      <pose>-15.0 111 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_112</name>
+      <uri>model://tree_112</uri>
+      <pose>-15.0 112 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_113</name>
+      <uri>model://tree_113</uri>
+      <pose>-15.0 113 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_114</name>
+      <uri>model://tree_114</uri>
+      <pose>-15.0 114 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_115</name>
+      <uri>model://tree_115</uri>
+      <pose>-15.0 115 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_116</name>
+      <uri>model://tree_116</uri>
+      <pose>-15.0 116 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_117</name>
+      <uri>model://tree_117</uri>
+      <pose>-15.0 117 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_118</name>
+      <uri>model://tree_118</uri>
+      <pose>-15.0 118 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_119</name>
+      <uri>model://tree_119</uri>
+      <pose>-15.0 119 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_120</name>
+      <uri>model://tree_120</uri>
+      <pose>-15.0 120 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_121</name>
+      <uri>model://tree_121</uri>
+      <pose>-15.0 121 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_122</name>
+      <uri>model://tree_122</uri>
+      <pose>-15.0 122 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_123</name>
+      <uri>model://tree_123</uri>
+      <pose>-15.0 123 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_124</name>
+      <uri>model://tree_124</uri>
+      <pose>-15.0 124 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_125</name>
+      <uri>model://tree_125</uri>
+      <pose>-15.0 125 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_126</name>
+      <uri>model://tree_126</uri>
+      <pose>-15.0 126 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_127</name>
+      <uri>model://tree_127</uri>
+      <pose>-15.0 127 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_128</name>
+      <uri>model://tree_128</uri>
+      <pose>-15.0 128 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_129</name>
+      <uri>model://tree_129</uri>
+      <pose>-15.0 129 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_130</name>
+      <uri>model://tree_130</uri>
+      <pose>-15.0 130 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_131</name>
+      <uri>model://tree_131</uri>
+      <pose>-15.0 131 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_132</name>
+      <uri>model://tree_132</uri>
+      <pose>-15.0 132 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_133</name>
+      <uri>model://tree_133</uri>
+      <pose>-15.0 133 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_134</name>
+      <uri>model://tree_134</uri>
+      <pose>-15.0 134 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_135</name>
+      <uri>model://tree_135</uri>
+      <pose>-15.0 135 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_136</name>
+      <uri>model://tree_136</uri>
+      <pose>-15.0 136 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_137</name>
+      <uri>model://tree_137</uri>
+      <pose>-15.0 137 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_138</name>
+      <uri>model://tree_138</uri>
+      <pose>-15.0 138 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_139</name>
+      <uri>model://tree_139</uri>
+      <pose>-15.0 139 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_140</name>
+      <uri>model://tree_140</uri>
+      <pose>-15.0 140 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_141</name>
+      <uri>model://tree_141</uri>
+      <pose>-15.0 141 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_142</name>
+      <uri>model://tree_142</uri>
+      <pose>-15.0 142 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_143</name>
+      <uri>model://tree_143</uri>
+      <pose>-15.0 143 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_144</name>
+      <uri>model://tree_144</uri>
+      <pose>-15.0 144 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_145</name>
+      <uri>model://tree_145</uri>
+      <pose>-15.0 145 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_146</name>
+      <uri>model://tree_146</uri>
+      <pose>-15.0 146 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_147</name>
+      <uri>model://tree_147</uri>
+      <pose>-15.0 147 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_148</name>
+      <uri>model://tree_148</uri>
+      <pose>-15.0 148 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_149</name>
+      <uri>model://tree_149</uri>
+      <pose>-15.0 149 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_150</name>
+      <uri>model://tree_150</uri>
+      <pose>-15.0 150 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_151</name>
+      <uri>model://tree_151</uri>
+      <pose>-15.0 151 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_152</name>
+      <uri>model://tree_152</uri>
+      <pose>-15.0 152 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_153</name>
+      <uri>model://tree_153</uri>
+      <pose>-15.0 153 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_154</name>
+      <uri>model://tree_154</uri>
+      <pose>-15.0 154 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_155</name>
+      <uri>model://tree_155</uri>
+      <pose>-15.0 155 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_156</name>
+      <uri>model://tree_156</uri>
+      <pose>-15.0 156 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_157</name>
+      <uri>model://tree_157</uri>
+      <pose>-15.0 157 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_158</name>
+      <uri>model://tree_158</uri>
+      <pose>-15.0 158 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_159</name>
+      <uri>model://tree_159</uri>
+      <pose>-15.0 159 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_160</name>
+      <uri>model://tree_160</uri>
+      <pose>-15.0 160 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_161</name>
+      <uri>model://tree_161</uri>
+      <pose>-15.0 161 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_162</name>
+      <uri>model://tree_162</uri>
+      <pose>-15.0 162 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_163</name>
+      <uri>model://tree_163</uri>
+      <pose>-15.0 163 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_164</name>
+      <uri>model://tree_164</uri>
+      <pose>-15.0 164 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_165</name>
+      <uri>model://tree_165</uri>
+      <pose>-15.0 165 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_166</name>
+      <uri>model://tree_166</uri>
+      <pose>-15.0 166 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_167</name>
+      <uri>model://tree_167</uri>
+      <pose>-15.0 167 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_168</name>
+      <uri>model://tree_168</uri>
+      <pose>-15.0 168 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_169</name>
+      <uri>model://tree_169</uri>
+      <pose>-15.0 169 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_170</name>
+      <uri>model://tree_170</uri>
+      <pose>-15.0 170 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_171</name>
+      <uri>model://tree_171</uri>
+      <pose>-15.0 171 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_172</name>
+      <uri>model://tree_172</uri>
+      <pose>-15.0 172 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_173</name>
+      <uri>model://tree_173</uri>
+      <pose>-15.0 173 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_174</name>
+      <uri>model://tree_174</uri>
+      <pose>-15.0 174 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_175</name>
+      <uri>model://tree_175</uri>
+      <pose>-15.0 175 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_176</name>
+      <uri>model://tree_176</uri>
+      <pose>-15.0 176 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_177</name>
+      <uri>model://tree_177</uri>
+      <pose>-15.0 177 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_178</name>
+      <uri>model://tree_178</uri>
+      <pose>-15.0 178 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_179</name>
+      <uri>model://tree_179</uri>
+      <pose>-15.0 179 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_180</name>
+      <uri>model://tree_180</uri>
+      <pose>-15.0 180 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_181</name>
+      <uri>model://tree_181</uri>
+      <pose>-15.0 181 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_182</name>
+      <uri>model://tree_182</uri>
+      <pose>-15.0 182 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_183</name>
+      <uri>model://tree_183</uri>
+      <pose>-15.0 183 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_184</name>
+      <uri>model://tree_184</uri>
+      <pose>-15.0 184 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_185</name>
+      <uri>model://tree_185</uri>
+      <pose>-15.0 185 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_186</name>
+      <uri>model://tree_186</uri>
+      <pose>-15.0 186 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_187</name>
+      <uri>model://tree_187</uri>
+      <pose>-15.0 187 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_188</name>
+      <uri>model://tree_188</uri>
+      <pose>-15.0 188 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_189</name>
+      <uri>model://tree_189</uri>
+      <pose>-15.0 189 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_190</name>
+      <uri>model://tree_190</uri>
+      <pose>-15.0 190 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_191</name>
+      <uri>model://tree_191</uri>
+      <pose>-15.0 191 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_192</name>
+      <uri>model://tree_192</uri>
+      <pose>-15.0 192 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_193</name>
+      <uri>model://tree_193</uri>
+      <pose>-15.0 193 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_194</name>
+      <uri>model://tree_194</uri>
+      <pose>-15.0 194 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_195</name>
+      <uri>model://tree_195</uri>
+      <pose>-15.0 195 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_196</name>
+      <uri>model://tree_196</uri>
+      <pose>-15.0 196 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_197</name>
+      <uri>model://tree_197</uri>
+      <pose>-15.0 197 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_198</name>
+      <uri>model://tree_198</uri>
+      <pose>-15.0 198 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>thin_tree_199</name>
+      <uri>model://tree_199</uri>
+      <pose>-15.0 199 0 0 0 0 </pose>
+      <static>true</static>
+    </include>
+    <model name='tree_0'>
+      <static>1</static>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>100</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>100</iyy>
+            <iyz>0</iyz>
+            <izz>100</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://tree/meshes/tree.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tree/meshes/tree.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-44.6003 10.3851 0 0 -0 0</pose>
+    </model>
+    <model name='tree_1'>
+      <static>1</static>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>100</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>100</iyy>
+            <iyz>0</iyz>
+            <izz>100</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://tree/meshes/tree.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tree/meshes/tree.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-44.6003 15.3851 0 0 -0 0</pose>
+    </model>
+    <model name='tree_2'>
+      <static>1</static>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>100</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>100</iyy>
+            <iyz>0</iyz>
+            <izz>100</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://tree/meshes/tree.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tree/meshes/tree.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-44.6003 20.3851 0 0 -0 0</pose>
+    </model>
+    <model name='tree_3'>
+      <static>1</static>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>100</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>100</iyy>
+            <iyz>0</iyz>
+            <izz>100</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://tree/meshes/tree.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tree/meshes/tree.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-44.6003 25.3851 0 0 -0 0</pose>
+    </model>
+    <model name='tree_4'>
+      <static>1</static>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>100</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>100</iyy>
+            <iyz>0</iyz>
+            <izz>100</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://tree/meshes/tree.dae</uri>
+              <scale>0.7 0.7 0.7</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tree/meshes/tree.dae</uri>
+              <scale>0.7 0.7 0.7</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-44.6003 30.3851 0 0 -0 0</pose>
+    </model>
+    <model name='tree_5'>
+      <static>1</static>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>100</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>100</iyy>
+            <iyz>0</iyz>
+            <izz>100</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://tree/meshes/tree.dae</uri>
+              <scale>0.7 0.7 0.7</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tree/meshes/tree.dae</uri>
+              <scale>0.7 0.7 0.7</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-44.6003 35.3851 0 0 -0 0</pose>
+    </model>
+    <model name='tree_6'>
+      <static>1</static>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>100</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>100</iyy>
+            <iyz>0</iyz>
+            <izz>100</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://tree/meshes/tree.dae</uri>
+              <scale>0.7 0.7 0.7</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tree/meshes/tree.dae</uri>
+              <scale>0.7 0.7 0.7</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-44.6003 40.3851 0 0 -0 0</pose>
+    </model>
+    <model name='tree_7'>
+      <static>1</static>
+      <link name='link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>100</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>100</iyy>
+            <iyz>0</iyz>
+            <izz>100</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://tree/meshes/tree.dae</uri>
+              <scale>0.7 0.7 0.7</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://tree/meshes/tree.dae</uri>
+              <scale>0.7 0.7 0.7</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-44.6003 45.3851 0 0 -0 0</pose>
+    </model>
+        
+    <model name="forest">
+      <static>true</static>
+      <link name="tree0">
+        <pose>-12.3266673541 -5.30551207016 0 0 0 1.5306644551 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.75209387728 1.75209387728 1.75209387728</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.75209387728 1.75209387728 1.75209387728</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree1">
+        <pose>6.82102054877 -14.6478688513 0 0 0 2.85537257329 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>0.644714312964 0.644714312964 0.644714312964</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>0.644714312964 0.644714312964 0.644714312964</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree2">
+        <pose>-16.8827736801 11.8182488833 0 0 0 2.40651980275 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.62528642378 0.62528642378 0.62528642378</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.62528642378 0.62528642378 0.62528642378</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree3">
+        <pose>0.190284692976 4.05489519131 0 0 0 0.572298673949 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.78771584679 1.78771584679 1.78771584679</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.78771584679 1.78771584679 1.78771584679</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree4">
+        <pose>-10.3325050817 -6.02464787154 0 0 0 1.94010218813 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.49462039377 1.49462039377 1.49462039377</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.49462039377 1.49462039377 1.49462039377</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree5">
+        <pose>-6.64934304961 -7.90520415677 0 0 0 1.93856812485 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.1736533449 1.1736533449 1.1736533449</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.1736533449 1.1736533449 1.1736533449</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree6">
+        <pose>7.62083600698 8.87586122234 0 0 0 1.62429971833 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.24716155159 1.24716155159 1.24716155159</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.24716155159 1.24716155159 1.24716155159</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree7">
+        <pose>-5.20459494397 5.26795651619 0 0 0 0.157814986259 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.2846458867 1.2846458867 1.2846458867</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.2846458867 1.2846458867 1.2846458867</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree8">
+        <pose>-13.2395397062 3.56623360892 0 0 0 0.202404492097 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.776722310419 0.776722310419 0.776722310419</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.776722310419 0.776722310419 0.776722310419</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree9">
+        <pose>11.6862686963 18.8757104107 0 0 0 4.09854396378 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>0.996712220396 0.996712220396 0.996712220396</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>0.996712220396 0.996712220396 0.996712220396</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree10">
+        <pose>10.0855207345 -4.78475652896 0 0 0 5.14734317821 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>0.973443655563 0.973443655563 0.973443655563</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>0.973443655563 0.973443655563 0.973443655563</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree11">
+        <pose>-5.27207777696 12.3772432425 0 0 0 5.98863328076 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>0.970518454399 0.970518454399 0.970518454399</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>0.970518454399 0.970518454399 0.970518454399</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree12">
+        <pose>-17.1459359415 -6.6071209531 0 0 0 2.04764262633 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.85511760091 1.85511760091 1.85511760091</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.85511760091 1.85511760091 1.85511760091</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree13">
+        <pose>1.53586287533 10.0081930663 0 0 0 4.84486105731 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.18734676404 1.18734676404 1.18734676404</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.18734676404 1.18734676404 1.18734676404</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree14">
+        <pose>-12.5782007316 5.76618228279 0 0 0 3.39684417817 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.76570748079 1.76570748079 1.76570748079</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.76570748079 1.76570748079 1.76570748079</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree15">
+        <pose>1.90864626324 4.22806393409 0 0 0 2.70555546444 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.36859829038 1.36859829038 1.36859829038</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.36859829038 1.36859829038 1.36859829038</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree16">
+        <pose>18.600124581 -7.64003872898 0 0 0 2.66173070036 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.88802666877 1.88802666877 1.88802666877</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.88802666877 1.88802666877 1.88802666877</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree17">
+        <pose>6.7914695868 13.8296206183 0 0 0 4.75488713564 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.79677722949 1.79677722949 1.79677722949</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.79677722949 1.79677722949 1.79677722949</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree18">
+        <pose>16.4025113779 10.2023834281 0 0 0 2.35517454925 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.69845409623 1.69845409623 1.69845409623</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.69845409623 1.69845409623 1.69845409623</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree19">
+        <pose>-10.2222216583 14.0680029926 0 0 0 3.40965097008 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.980026579687 0.980026579687 0.980026579687</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.980026579687 0.980026579687 0.980026579687</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree20">
+        <pose>-1.91062190067 -7.25828592972 0 0 0 3.77519921726 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.636011955794 0.636011955794 0.636011955794</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.636011955794 0.636011955794 0.636011955794</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree21">
+        <pose>15.5617002505 19.4891550998 0 0 0 5.56497924024 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.93376510624 1.93376510624 1.93376510624</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.93376510624 1.93376510624 1.93376510624</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree22">
+        <pose>-10.0040891031 -17.1418434829 0 0 0 3.98382517172 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>0.627527411511 0.627527411511 0.627527411511</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>0.627527411511 0.627527411511 0.627527411511</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree23">
+        <pose>-0.226739619499 0.845133651285 0 0 0 2.21649308912 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.27537800885 1.27537800885 1.27537800885</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.27537800885 1.27537800885 1.27537800885</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree24">
+        <pose>-9.54619406121 -11.3099394868 0 0 0 0.057943532226 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.47357577558 1.47357577558 1.47357577558</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.47357577558 1.47357577558 1.47357577558</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree25">
+        <pose>11.1798167909 1.33659597001 0 0 0 3.21047388478 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>0.609506948062 0.609506948062 0.609506948062</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>0.609506948062 0.609506948062 0.609506948062</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree26">
+        <pose>-1.34030326275 11.7078303706 0 0 0 5.25514249155 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.33717740405 1.33717740405 1.33717740405</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.33717740405 1.33717740405 1.33717740405</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree27">
+        <pose>0.242257136942 -5.17284679904 0 0 0 5.62011845208 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.36667983031 1.36667983031 1.36667983031</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.36667983031 1.36667983031 1.36667983031</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree28">
+        <pose>6.66578437919 -7.26478678896 0 0 0 1.97539063567 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.674501379205 0.674501379205 0.674501379205</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.674501379205 0.674501379205 0.674501379205</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree29">
+        <pose>-18.225735883 -9.86788366341 0 0 0 2.06847252353 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>0.613145654589 0.613145654589 0.613145654589</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>0.613145654589 0.613145654589 0.613145654589</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree30">
+        <pose>-7.99855735057 -12.9602465219 0 0 0 3.7266432313 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.08368296236 1.08368296236 1.08368296236</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.08368296236 1.08368296236 1.08368296236</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree31">
+        <pose>-19.3397351049 10.858405482 0 0 0 4.02554012223 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>0.620099522011 0.620099522011 0.620099522011</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>0.620099522011 0.620099522011 0.620099522011</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree32">
+        <pose>-11.4487486677 1.38047460807 0 0 0 6.17920431931 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>0.666684819065 0.666684819065 0.666684819065</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>0.666684819065 0.666684819065 0.666684819065</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree33">
+        <pose>-9.20036890648 19.0945022703 0 0 0 2.54377928307 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>0.619150782212 0.619150782212 0.619150782212</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>0.619150782212 0.619150782212 0.619150782212</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree34">
+        <pose>8.65233003218 19.1907707033 0 0 0 4.8037725469 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.90794259159 1.90794259159 1.90794259159</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.90794259159 1.90794259159 1.90794259159</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree35">
+        <pose>2.16203454254 -19.5508781293 0 0 0 5.29224652986 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.5246595973 1.5246595973 1.5246595973</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.5246595973 1.5246595973 1.5246595973</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree36">
+        <pose>-10.7341089017 18.3103960299 0 0 0 1.90857505482 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.82126097709 1.82126097709 1.82126097709</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.82126097709 1.82126097709 1.82126097709</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree37">
+        <pose>15.0714465912 0.801970548594 0 0 0 4.36977023575 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.795349460412 0.795349460412 0.795349460412</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.795349460412 0.795349460412 0.795349460412</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree38">
+        <pose>18.7113620183 1.10966730724 0 0 0 0.912815309114 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.38553547812 1.38553547812 1.38553547812</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.38553547812 1.38553547812 1.38553547812</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree39">
+        <pose>5.82315875665 19.3428330655 0 0 0 5.09756174761 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.69699254885 1.69699254885 1.69699254885</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.69699254885 1.69699254885 1.69699254885</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree40">
+        <pose>12.0114501968 -4.23543429951 0 0 0 4.79628225523 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.15016470956 1.15016470956 1.15016470956</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.15016470956 1.15016470956 1.15016470956</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree41">
+        <pose>8.01551188139 -4.83185892763 0 0 0 4.54437679843 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.10658623002 1.10658623002 1.10658623002</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.10658623002 1.10658623002 1.10658623002</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree42">
+        <pose>9.22477384092 13.6510677781 0 0 0 3.95156914916 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.4239041912 1.4239041912 1.4239041912</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.4239041912 1.4239041912 1.4239041912</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree43">
+        <pose>-10.6533633824 -2.32186671787 0 0 0 5.84473431023 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.13749321171 1.13749321171 1.13749321171</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.13749321171 1.13749321171 1.13749321171</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree44">
+        <pose>6.11698942669 10.4830883697 0 0 0 0.0777724341896 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.58953908191 1.58953908191 1.58953908191</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.58953908191 1.58953908191 1.58953908191</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree45">
+        <pose>-15.4497689434 12.2055383456 0 0 0 4.3014212602 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.955067760828 0.955067760828 0.955067760828</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.955067760828 0.955067760828 0.955067760828</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree46">
+        <pose>19.3990623397 -2.82881551436 0 0 0 1.94325209196 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.53420032988 1.53420032988 1.53420032988</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.53420032988 1.53420032988 1.53420032988</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree47">
+        <pose>-1.60652006399 8.08330067422 0 0 0 1.13436710669 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.52185495961 1.52185495961 1.52185495961</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.52185495961 1.52185495961 1.52185495961</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree48">
+        <pose>5.97276142125 14.3570676552 0 0 0 5.4482245636 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.43036956542 1.43036956542 1.43036956542</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.43036956542 1.43036956542 1.43036956542</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree49">
+        <pose>-11.1266852696 11.879193708 0 0 0 5.87119780015 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.86765681545 0.86765681545 0.86765681545</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.86765681545 0.86765681545 0.86765681545</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree50">
+        <pose>16.2850186475 15.8579825217 0 0 0 2.30716885599 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.85784293038 1.85784293038 1.85784293038</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.85784293038 1.85784293038 1.85784293038</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree51">
+        <pose>-12.1740338155 12.3219049172 0 0 0 4.87860071047 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.20395534572 1.20395534572 1.20395534572</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.20395534572 1.20395534572 1.20395534572</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree52">
+        <pose>18.4637435438 -19.6497836198 0 0 0 3.09757933444 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.20352437527 1.20352437527 1.20352437527</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.20352437527 1.20352437527 1.20352437527</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree53">
+        <pose>-17.4567060086 -13.4384693067 0 0 0 4.5598478431 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.89794883614 1.89794883614 1.89794883614</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.89794883614 1.89794883614 1.89794883614</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree54">
+        <pose>12.424222568 -6.299818948 0 0 0 5.63923057088 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>0.994159537115 0.994159537115 0.994159537115</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>0.994159537115 0.994159537115 0.994159537115</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree55">
+        <pose>-16.3313585394 -5.57043346701 0 0 0 3.47913345707 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.56095645625 1.56095645625 1.56095645625</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.56095645625 1.56095645625 1.56095645625</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree56">
+        <pose>16.3610127162 -12.5272146871 0 0 0 2.97256468679 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.649235115732 0.649235115732 0.649235115732</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.649235115732 0.649235115732 0.649235115732</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree57">
+        <pose>-4.14312178633 16.3657593233 0 0 0 2.48477836341 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>0.939457683192 0.939457683192 0.939457683192</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>0.939457683192 0.939457683192 0.939457683192</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree58">
+        <pose>-6.69657422888 1.04334777828 0 0 0 0.284305602451 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>0.797673302995 0.797673302995 0.797673302995</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>0.797673302995 0.797673302995 0.797673302995</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree59">
+        <pose>7.7629313117 8.10855464441 0 0 0 4.41856788175 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.77887923693 1.77887923693 1.77887923693</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.77887923693 1.77887923693 1.77887923693</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree60">
+        <pose>-1.16381420842 10.2996462223 0 0 0 1.20125716218 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.33458430335 1.33458430335 1.33458430335</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.33458430335 1.33458430335 1.33458430335</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree61">
+        <pose>2.97770708781 2.97918720782 0 0 0 2.28574648558 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.05745548031 1.05745548031 1.05745548031</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.05745548031 1.05745548031 1.05745548031</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree62">
+        <pose>-8.91082989476 -15.6093082912 0 0 0 0.371948071199 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.17955179835 1.17955179835 1.17955179835</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.17955179835 1.17955179835 1.17955179835</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree63">
+        <pose>-17.8113945623 3.27107689142 0 0 0 1.45162040919 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.72588405886 0.72588405886 0.72588405886</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.72588405886 0.72588405886 0.72588405886</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree64">
+        <pose>-14.1658928323 -12.5776099743 0 0 0 0.738276394007 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.99104287933 1.99104287933 1.99104287933</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.99104287933 1.99104287933 1.99104287933</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree65">
+        <pose>-19.8181016638 6.9380556338 0 0 0 1.47678408458 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.42532071508 1.42532071508 1.42532071508</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.42532071508 1.42532071508 1.42532071508</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree66">
+        <pose>5.26499710065 -16.8445797588 0 0 0 5.82515081082 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.87729059441 1.87729059441 1.87729059441</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.87729059441 1.87729059441 1.87729059441</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree67">
+        <pose>-4.81353822188 14.6284086271 0 0 0 0.015760621913 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.265652814 1.265652814 1.265652814</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.265652814 1.265652814 1.265652814</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree68">
+        <pose>1.63109549477 -12.3576552617 0 0 0 5.68068196828 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.676401020328 0.676401020328 0.676401020328</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.676401020328 0.676401020328 0.676401020328</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree69">
+        <pose>0.501853627309 -10.6709649284 0 0 0 3.6938216057 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.80565334105 1.80565334105 1.80565334105</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.80565334105 1.80565334105 1.80565334105</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree70">
+        <pose>-8.57494617522 17.8252586584 0 0 0 2.8373869752 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>0.738928771604 0.738928771604 0.738928771604</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>0.738928771604 0.738928771604 0.738928771604</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree71">
+        <pose>-17.0618370515 6.4279471747 0 0 0 0.522664272488 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.77386509193 1.77386509193 1.77386509193</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.77386509193 1.77386509193 1.77386509193</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree72">
+        <pose>-19.976553256 -17.1641490192 0 0 0 5.66358487536 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.65640144865 1.65640144865 1.65640144865</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.65640144865 1.65640144865 1.65640144865</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree73">
+        <pose>-11.9147020001 14.3410000476 0 0 0 3.10930316512 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.09927927894 1.09927927894 1.09927927894</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.09927927894 1.09927927894 1.09927927894</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree74">
+        <pose>-16.5419860698 12.4122191971 0 0 0 1.65825697482 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.62006551131 1.62006551131 1.62006551131</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.62006551131 1.62006551131 1.62006551131</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree75">
+        <pose>9.46313863005 -18.8125867774 0 0 0 0.310411237064 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.18288749026 1.18288749026 1.18288749026</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.18288749026 1.18288749026 1.18288749026</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree76">
+        <pose>2.46773291025 -14.9369414329 0 0 0 4.04845660458 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.24617043145 1.24617043145 1.24617043145</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.24617043145 1.24617043145 1.24617043145</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree77">
+        <pose>-14.1310526732 -10.7887027075 0 0 0 2.06889268731 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.80301043321 1.80301043321 1.80301043321</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.80301043321 1.80301043321 1.80301043321</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree78">
+        <pose>-8.76111274548 -11.3033038972 0 0 0 2.02566314743 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.9639445739 1.9639445739 1.9639445739</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.9639445739 1.9639445739 1.9639445739</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree79">
+        <pose>2.67602278735 -7.30926358174 0 0 0 1.34268164589 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.13359791184 1.13359791184 1.13359791184</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.13359791184 1.13359791184 1.13359791184</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree80">
+        <pose>-14.3221531535 13.7903484645 0 0 0 4.65779599364 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>0.883931988446 0.883931988446 0.883931988446</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>0.883931988446 0.883931988446 0.883931988446</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree81">
+        <pose>9.15224081517 16.4349931481 0 0 0 4.37150502062 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.40491989532 1.40491989532 1.40491989532</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.40491989532 1.40491989532 1.40491989532</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree82">
+        <pose>3.88096695565 15.361978102 0 0 0 0.484690674784 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.65692251855 1.65692251855 1.65692251855</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.65692251855 1.65692251855 1.65692251855</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree83">
+        <pose>-0.413519079066 19.3559624891 0 0 0 3.98925536901 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.12901241773 1.12901241773 1.12901241773</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.12901241773 1.12901241773 1.12901241773</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree84">
+        <pose>-10.4721221309 10.2333385278 0 0 0 2.84901828244 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.42659275463 1.42659275463 1.42659275463</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.42659275463 1.42659275463 1.42659275463</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree85">
+        <pose>-17.8620367428 6.97736719165 0 0 0 4.40881764165 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.29223446973 1.29223446973 1.29223446973</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.29223446973 1.29223446973 1.29223446973</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree86">
+        <pose>6.30388192352 7.08469071679 0 0 0 5.51463394127 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.65471098685 1.65471098685 1.65471098685</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.65471098685 1.65471098685 1.65471098685</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree87">
+        <pose>-1.90557063497 15.4413576275 0 0 0 5.6838197396 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.48336092722 1.48336092722 1.48336092722</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.48336092722 1.48336092722 1.48336092722</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree88">
+        <pose>7.86561354798 12.391419268 0 0 0 2.63152395616 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.72314923238 1.72314923238 1.72314923238</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.72314923238 1.72314923238 1.72314923238</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree89">
+        <pose>7.64617783443 13.4655770818 0 0 0 1.55668826584 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.871793118415 0.871793118415 0.871793118415</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.871793118415 0.871793118415 0.871793118415</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree90">
+        <pose>11.6854945871 -14.5589792243 0 0 0 3.26759145014 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.04222956012 1.04222956012 1.04222956012</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.04222956012 1.04222956012 1.04222956012</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree91">
+        <pose>-19.8399207307 -16.2268211898 0 0 0 1.88149342753 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.3355314237 1.3355314237 1.3355314237</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.3355314237 1.3355314237 1.3355314237</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree92">
+        <pose>3.86363250637 16.7490093326 0 0 0 5.03973236398 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.877077341517 0.877077341517 0.877077341517</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.877077341517 0.877077341517 0.877077341517</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree93">
+        <pose>-19.5356449024 1.17189654152 0 0 0 1.15317316939 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>0.612553551689 0.612553551689 0.612553551689</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>0.612553551689 0.612553551689 0.612553551689</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree94">
+        <pose>-13.7359134369 -18.2885471855 0 0 0 1.72688441505 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>0.603396049281 0.603396049281 0.603396049281</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>0.603396049281 0.603396049281 0.603396049281</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree95">
+        <pose>12.8530814398 10.0570089403 0 0 0 0.665066199656 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.10837331234 1.10837331234 1.10837331234</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.10837331234 1.10837331234 1.10837331234</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree96">
+        <pose>-2.94340273892 9.32362742301 0 0 0 5.62182803861 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.35753763475 1.35753763475 1.35753763475</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.35753763475 1.35753763475 1.35753763475</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree97">
+        <pose>-12.1355808746 1.98021673499 0 0 0 3.24319996475 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>0.746237806174 0.746237806174 0.746237806174</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>0.746237806174 0.746237806174 0.746237806174</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree98">
+        <pose>-7.80371251939 -5.97887955196 0 0 0 3.88350920757 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.6881280136 1.6881280136 1.6881280136</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.6881280136 1.6881280136 1.6881280136</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree99">
+        <pose>18.2550629608 14.9238069357 0 0 0 0.495144128381 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>0.969926241265 0.969926241265 0.969926241265</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>0.969926241265 0.969926241265 0.969926241265</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree100">
+        <pose>-1.26913171477 -10.9093083266 0 0 0 4.60915282007 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.12762330205 1.12762330205 1.12762330205</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.12762330205 1.12762330205 1.12762330205</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree101">
+        <pose>14.9087181037 -12.644362543 0 0 0 2.10392036306 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.8409961674 1.8409961674 1.8409961674</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.8409961674 1.8409961674 1.8409961674</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree102">
+        <pose>15.6726283923 10.0557542084 0 0 0 3.48337551076 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.61891548928 1.61891548928 1.61891548928</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.61891548928 1.61891548928 1.61891548928</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree103">
+        <pose>-13.0988226909 19.7470815475 0 0 0 0.986887493631 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.90222879304 1.90222879304 1.90222879304</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.90222879304 1.90222879304 1.90222879304</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree104">
+        <pose>-1.62473217235 13.5029720228 0 0 0 0.60895291832 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.39856609012 1.39856609012 1.39856609012</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.39856609012 1.39856609012 1.39856609012</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree105">
+        <pose>12.8875291531 9.6554221673 0 0 0 4.54774656431 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.668802817 1.668802817 1.668802817</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.668802817 1.668802817 1.668802817</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree106">
+        <pose>-16.6716817808 -19.0395484608 0 0 0 6.06219916798 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.74355182631 1.74355182631 1.74355182631</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.74355182631 1.74355182631 1.74355182631</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree107">
+        <pose>13.3459945353 -2.81437362312 0 0 0 5.01832055102 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.98300631203 1.98300631203 1.98300631203</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.98300631203 1.98300631203 1.98300631203</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree108">
+        <pose>7.3762305957 9.73544336198 0 0 0 0.447055501817 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.1441093508 1.1441093508 1.1441093508</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.1441093508 1.1441093508 1.1441093508</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree109">
+        <pose>2.08806671359 -6.37129907432 0 0 0 5.44482656796 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.18977256079 1.18977256079 1.18977256079</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.18977256079 1.18977256079 1.18977256079</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree110">
+        <pose>-4.68781817063 -7.39846209678 0 0 0 1.16906181808 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>0.638579965555 0.638579965555 0.638579965555</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>0.638579965555 0.638579965555 0.638579965555</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree111">
+        <pose>6.32802809584 10.0666016424 0 0 0 0.816488826266 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.63861358841 1.63861358841 1.63861358841</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.63861358841 1.63861358841 1.63861358841</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree112">
+        <pose>10.2145280731 -16.0196505806 0 0 0 3.49591902589 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.75133770126 1.75133770126 1.75133770126</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.75133770126 1.75133770126 1.75133770126</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree113">
+        <pose>-16.5496320127 -17.5662052347 0 0 0 2.04187099835 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.85387517673 1.85387517673 1.85387517673</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.85387517673 1.85387517673 1.85387517673</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree114">
+        <pose>2.29414793966 -3.34395288231 0 0 0 2.56560554332 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.2061051491 1.2061051491 1.2061051491</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.2061051491 1.2061051491 1.2061051491</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree115">
+        <pose>12.0629941647 -6.46284641889 0 0 0 1.01953961112 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.9637648746 1.9637648746 1.9637648746</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.9637648746 1.9637648746 1.9637648746</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree116">
+        <pose>-5.68391097828 1.9427922099 0 0 0 3.87996268651 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.4575202901 1.4575202901 1.4575202901</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.4575202901 1.4575202901 1.4575202901</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree117">
+        <pose>2.78044479023 -11.9202207293 0 0 0 5.91293579191 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.8184137044 1.8184137044 1.8184137044</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.8184137044 1.8184137044 1.8184137044</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree118">
+        <pose>-4.43221546952 8.06827523514 0 0 0 1.50303466027 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.74376660635 1.74376660635 1.74376660635</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.74376660635 1.74376660635 1.74376660635</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree119">
+        <pose>10.612893336 18.9367313616 0 0 0 5.5074506096 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.79429905718 1.79429905718 1.79429905718</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.79429905718 1.79429905718 1.79429905718</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree120">
+        <pose>2.35577665815 -1.75877580858 0 0 0 0.263239930153 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.07558528683 1.07558528683 1.07558528683</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.07558528683 1.07558528683 1.07558528683</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree121">
+        <pose>-1.96494179009 9.71722419998 0 0 0 3.70881148766 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.920866295085 0.920866295085 0.920866295085</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.920866295085 0.920866295085 0.920866295085</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree122">
+        <pose>-2.98181153259 -7.93975489816 0 0 0 2.64116536002 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.03821391721 1.03821391721 1.03821391721</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.03821391721 1.03821391721 1.03821391721</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree123">
+        <pose>-4.06221984666 -6.50350848443 0 0 0 3.16937615628 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.7717230195 1.7717230195 1.7717230195</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.7717230195 1.7717230195 1.7717230195</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree124">
+        <pose>-12.1733422229 8.18748500707 0 0 0 4.79471863999 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.34047764015 1.34047764015 1.34047764015</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.34047764015 1.34047764015 1.34047764015</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree125">
+        <pose>-18.1273104157 7.9523313255 0 0 0 0.72961866773 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.04731330438 1.04731330438 1.04731330438</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.04731330438 1.04731330438 1.04731330438</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree126">
+        <pose>14.5592394163 8.96951063813 0 0 0 4.42476707812 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.23631280908 1.23631280908 1.23631280908</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.23631280908 1.23631280908 1.23631280908</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree127">
+        <pose>-5.405768233 8.48017165665 0 0 0 5.00778084901 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.44314845788 1.44314845788 1.44314845788</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.44314845788 1.44314845788 1.44314845788</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree128">
+        <pose>4.81676518045 -13.3138626403 0 0 0 2.51039276107 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>0.873088231564 0.873088231564 0.873088231564</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>0.873088231564 0.873088231564 0.873088231564</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree129">
+        <pose>6.12930457728 -7.71534211821 0 0 0 1.44492279073 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.20586826137 1.20586826137 1.20586826137</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.20586826137 1.20586826137 1.20586826137</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree130">
+        <pose>7.49270421689 -15.7182391855 0 0 0 1.4098341622 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.89673002716 1.89673002716 1.89673002716</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.89673002716 1.89673002716 1.89673002716</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree131">
+        <pose>19.7218986726 -5.33739226265 0 0 0 1.75187333234 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.8726847911 1.8726847911 1.8726847911</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.8726847911 1.8726847911 1.8726847911</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree132">
+        <pose>18.1202777446 -11.7379633179 0 0 0 5.71941054377 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.64499662198 1.64499662198 1.64499662198</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.64499662198 1.64499662198 1.64499662198</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree133">
+        <pose>-19.0590932535 11.7095695317 0 0 0 3.19016048042 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.68409844613 1.68409844613 1.68409844613</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.68409844613 1.68409844613 1.68409844613</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree134">
+        <pose>-1.98604536227 -0.20021376787 0 0 0 1.64901472385 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.7383303594 1.7383303594 1.7383303594</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.7383303594 1.7383303594 1.7383303594</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree135">
+        <pose>-8.22181124672 15.2889456012 0 0 0 5.26425687992 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>0.941851897414 0.941851897414 0.941851897414</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>0.941851897414 0.941851897414 0.941851897414</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree136">
+        <pose>-8.67838387251 -8.42281508549 0 0 0 1.46895518391 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.58347261917 1.58347261917 1.58347261917</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.58347261917 1.58347261917 1.58347261917</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree137">
+        <pose>10.2647009843 -11.4699757789 0 0 0 2.78309240956 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.5608842931 1.5608842931 1.5608842931</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.5608842931 1.5608842931 1.5608842931</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree138">
+        <pose>-18.6141383111 -13.8344878491 0 0 0 3.43292625777 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.66526268253 0.66526268253 0.66526268253</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.66526268253 0.66526268253 0.66526268253</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree139">
+        <pose>18.1099193099 6.30293408182 0 0 0 6.25507263921 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.63955353365 1.63955353365 1.63955353365</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.63955353365 1.63955353365 1.63955353365</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree140">
+        <pose>1.38334928887 3.42690880442 0 0 0 3.84752812635 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.80921744349 1.80921744349 1.80921744349</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>1.80921744349 1.80921744349 1.80921744349</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree141">
+        <pose>7.21127882503 5.45045735943 0 0 0 5.69741177261 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.30508615622 1.30508615622 1.30508615622</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.30508615622 1.30508615622 1.30508615622</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree142">
+        <pose>-1.76053543215 3.45966136114 0 0 0 0.875273499496 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.12267091944 1.12267091944 1.12267091944</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.12267091944 1.12267091944 1.12267091944</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree143">
+        <pose>-9.40758622335 4.02010080971 0 0 0 2.78030981246 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.816653546322 0.816653546322 0.816653546322</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.816653546322 0.816653546322 0.816653546322</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree144">
+        <pose>-8.41519953628 14.3152862506 0 0 0 0.998120365709 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.72037943249 1.72037943249 1.72037943249</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.72037943249 1.72037943249 1.72037943249</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree145">
+        <pose>13.1070600106 8.17528083588 0 0 0 1.50263015018 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.97880028454 1.97880028454 1.97880028454</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.97880028454 1.97880028454 1.97880028454</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree146">
+        <pose>15.9046945336 -0.970221934418 0 0 0 0.840994340674 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.22175863276 1.22175863276 1.22175863276</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_3.dae</uri>
+              <scale>1.22175863276 1.22175863276 1.22175863276</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree147">
+        <pose>10.0319807569 -14.859124302 0 0 0 3.45449020985 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.87300621031 0.87300621031 0.87300621031</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.87300621031 0.87300621031 0.87300621031</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree148">
+        <pose>6.83020313907 -10.5102726781 0 0 0 2.84082627499 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.38953313048 1.38953313048 1.38953313048</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.38953313048 1.38953313048 1.38953313048</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree149">
+        <pose>-0.450378757349 -16.707166976 0 0 0 6.19849087256 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>0.947696527152 0.947696527152 0.947696527152</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>0.947696527152 0.947696527152 0.947696527152</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree150">
+        <pose>2.89143003881 18.4831452723 0 0 0 0.258565306446 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.714408382606 0.714408382606 0.714408382606</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.714408382606 0.714408382606 0.714408382606</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree151">
+        <pose>-13.1772975715 -5.42363301433 0 0 0 3.81870649397 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.1613246629 1.1613246629 1.1613246629</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>1.1613246629 1.1613246629 1.1613246629</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree152">
+        <pose>7.87162889329 -3.89923116649 0 0 0 1.3127941316 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.72409825289 0.72409825289 0.72409825289</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.72409825289 0.72409825289 0.72409825289</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree153">
+        <pose>1.22407186273 -1.41121594293 0 0 0 4.13780377986 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.836134814497 0.836134814497 0.836134814497</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_1.dae</uri>
+              <scale>0.836134814497 0.836134814497 0.836134814497</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree154">
+        <pose>7.53147144081 -5.54672048064 0 0 0 5.91863891935 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.870699658037 0.870699658037 0.870699658037</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.870699658037 0.870699658037 0.870699658037</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree155">
+        <pose>0.783985779637 -0.979852232437 0 0 0 0.940016042541 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.787511815075 0.787511815075 0.787511815075</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_2.dae</uri>
+              <scale>0.787511815075 0.787511815075 0.787511815075</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree156">
+        <pose>-1.57189894124 5.25981451837 0 0 0 4.75390749193 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.70831464373 1.70831464373 1.70831464373</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_6.dae</uri>
+              <scale>1.70831464373 1.70831464373 1.70831464373</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree157">
+        <pose>-7.13924428018 -14.2885747654 0 0 0 1.41065696741 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.49160535122 1.49160535122 1.49160535122</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_5.dae</uri>
+              <scale>1.49160535122 1.49160535122 1.49160535122</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree158">
+        <pose>9.30189859718 -7.71677257274 0 0 0 0.0946057231269 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.8209852279 1.8209852279 1.8209852279</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.8209852279 1.8209852279 1.8209852279</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+      <link name="tree159">
+        <pose>-2.54101295987 -1.39926213236 0 0 0 4.82393421008 </pose>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.0540673912 1.0540673912 1.0540673912</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/dgguglielmo/norv_vae_ws/src/simulate/lmf_gazebo_models/rmf_sim/models/vaino_forest/picea_abies_4.dae</uri>
+              <scale>1.0540673912 1.0540673912 1.0540673912</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>0</max_contacts>
+        </collision>
+      </link>
+    </model>
+  </world>
+</sdf>

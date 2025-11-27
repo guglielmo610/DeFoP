@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="unit_sphere">
+    <static>true</static>
+    <link name="link">
+      <pose>0 0 0 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+            <sphere>
+              <radius>1.0</radius>
+            </sphere>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+            <sphere>
+              <radius>1.0</radius>
+            </sphere>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

@@ -1,0 +1,13 @@
+<launch>
+  <arg name="robot_name" default="delta" />
+  <arg name="rviz_en" default="true" />
+  <!-- Rviz -->
+  <group if="$(arg rviz_en)">
+    <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz" args="-d $(find rmf_sim)/rviz/$(arg robot_name)_sim.rviz" output="screen">
+      <!-- <remap from="goal" to="$(arg robot_name)/goal" /> --> <!-- this rviz use geometry_msgs/PoseStamped instead of geometry_msgs/Pose-->
+    </node>
+  </group>
+
+  <param name="robot_description" command="$(find xacro)/xacro $(find rmf_sim)/urdf/rmf.urdf" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+</launch>

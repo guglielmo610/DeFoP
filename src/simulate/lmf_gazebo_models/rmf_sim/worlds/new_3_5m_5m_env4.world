@@ -1,0 +1,1855 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+  <world name="default">
+    <model name="ground_plane">
+      <static>1</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>1000 1000</size>
+            </plane>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name="visual">
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>1000 1000</size>
+            </plane>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name="wall_left">
+      <static>1</static>
+      <link name="link">
+        <pose frame="">0 0 25.0 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>120.0 0.2 50.0</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>120.0 0.2 50.0</size>
+            </box>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame="">50.0 25.0 0 0 0 0</pose>
+    </model>
+    <model name="wall_right">
+      <static>1</static>
+      <link name="link">
+        <pose frame="">0 0 25.0 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>120.0 0.2 50.0</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>120.0 0.2 50.0</size>
+            </box>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame="">50.0 -25.0 0 0 0 0</pose>
+    </model>
+    <model name="wall_back">
+      <static>1</static>
+      <link name="link">
+        <pose frame="">0 0 25.0 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>60.0 0.2 50.0</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>60.0 0.2 50.0</size>
+            </box>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame="">-10.0 0.0 0 0 0 1.57</pose>
+    </model>
+    <model name="wall_top">
+      <static>1</static>
+      <link name="link">
+        <pose frame="">0 0 0.1 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>120.0 60.0 0.2</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>120.0 60.0 0.2</size>
+            </box>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame="">50.0 0.0 9.0 0 0 0</pose>
+    </model>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <scene>
+      <shadows>0</shadows>
+    </scene>
+    <!-- Plugins -->
+    <plugin filename="librotors_gazebo_ros_interface_plugin.so" name="ros_interface_plugin"/>
+    <!-- Physics -->
+    <physics default="0" name="default_physics" type="ode">
+      <max_step_size>0.005</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>200</real_time_update_rate>
+      <gravity>0 0 -9.8</gravity>
+      <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>1000</iters>
+          <sor>1.3</sor>
+          <use_dynamic_moi_rescaling>0</use_dynamic_moi_rescaling>
+        </solver>
+        <constraints>
+          <cfm>0</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>100</contact_max_correcting_vel>
+          <contact_surface_layer>0.001</contact_surface_layer>
+        </constraints>
+      </ode>
+    </physics>
+    <include>
+      <name>columnSimple Stone0</name>
+      <uri>model://Simple Stone</uri>
+      <pose>1.6884934902191162 -23.751445412635803 0 0 0 2.41665712995 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone1</name>
+      <uri>model://Simple Stone</uri>
+      <pose>1.4365551471710205 -20.257015705108643 0 0 0 4.12752134368 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone2</name>
+      <uri>model://Simple Stone</uri>
+      <pose>0.6622982621192932 -16.840140342712402 0 0 0 1.93993773979 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone3</name>
+      <uri>model://Simple Stone</uri>
+      <pose>0.7502642273902893 -13.33774471282959 0 0 0 3.05251568737 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone4</name>
+      <uri>model://Simple Stone</uri>
+      <pose>0.2858399748802185 -9.86516284942627 0 0 0 5.6347463072 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone5</name>
+      <uri>model://Simple Stone</uri>
+      <pose>1.9259393215179443 -6.769264221191406 0 0 0 3.105220774 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone6</name>
+      <uri>model://Simple Stone</uri>
+      <pose>1.6664785146713257 -1.8000831604003906 0 0 0 0.10707423221 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone7</name>
+      <uri>model://Simple Stone</uri>
+      <pose>0.969555675983429 1.6333999633789062 0 0 0 3.06491373892 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone8</name>
+      <uri>model://Simple Stone</uri>
+      <pose>0.5200985670089722 5.366312026977539 0 0 0 4.11616035559 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone9</name>
+      <uri>model://Simple Stone</uri>
+      <pose>0.6056391000747681 8.868766784667969 0 0 0 5.29115478619 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone10</name>
+      <uri>model://Simple Stone</uri>
+      <pose>0.008355568163096905 14.554241180419922 0 0 0 2.5488003421 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone11</name>
+      <uri>model://Simple Stone</uri>
+      <pose>1.163988709449768 20.011371612548828 0 0 0 4.64915950347 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone12</name>
+      <uri>model://Simple Stone</uri>
+      <pose>1.7938451766967773 24.90756607055664 0 0 0 4.61289699579 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone13</name>
+      <uri>model://Simple Stone</uri>
+      <pose>4.034418106079102 -9.571541786193848 0 0 0 4.66829151392 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone14</name>
+      <uri>model://Simple Stone</uri>
+      <pose>4.482866287231445 -4.374137878417969 0 0 0 3.28526416937 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone15</name>
+      <uri>model://Simple Stone</uri>
+      <pose>3.6800363063812256 3.8532657623291016 0 0 0 2.57483780137 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone16</name>
+      <uri>model://Simple Stone</uri>
+      <pose>4.945078372955322 8.797042846679688 0 0 0 4.97716958729 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone17</name>
+      <uri>model://Simple Stone</uri>
+      <pose>2.7881789207458496 16.686634063720703 0 0 0 1.08276522994 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone18</name>
+      <uri>model://Simple Stone</uri>
+      <pose>4.663895130157471 19.852733612060547 0 0 0 5.54773398065 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone19</name>
+      <uri>model://Simple Stone</uri>
+      <pose>4.930139541625977 23.34610366821289 0 0 0 5.45800589878 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone20</name>
+      <uri>model://Simple Stone</uri>
+      <pose>5.008763313293457 -19.72410774230957 0 0 0 6.19390986142 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone21</name>
+      <uri>model://Simple Stone</uri>
+      <pose>5.707606315612793 -16.291014671325684 0 0 0 0.522976072296 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone22</name>
+      <uri>model://Simple Stone</uri>
+      <pose>5.390676498413086 -12.801878929138184 0 0 0 0.823004290934 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone23</name>
+      <uri>model://Simple Stone</uri>
+      <pose>6.801545143127441 -7.422700881958008 0 0 0 4.29350102436 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone24</name>
+      <uri>model://Simple Stone</uri>
+      <pose>5.360180377960205 -0.9822597503662109 0 0 0 2.44923754736 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone25</name>
+      <uri>model://Simple Stone</uri>
+      <pose>6.638490676879883 5.72998046875 0 0 0 4.11862256846 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone26</name>
+      <uri>model://Simple Stone</uri>
+      <pose>5.084854602813721 12.314373016357422 0 0 0 3.01040538614 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone27</name>
+      <uri>model://Simple Stone</uri>
+      <pose>6.291105270385742 16.750041961669922 0 0 0 4.74182607581 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone28</name>
+      <uri>model://Simple Stone</uri>
+      <pose>8.00903034210205 -24.970256896689534 0 0 0 1.60037254492 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone29</name>
+      <uri>model://Simple Stone</uri>
+      <pose>8.575140953063965 -21.512796640396118 0 0 0 5.4969116018 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone30</name>
+      <uri>model://Simple Stone</uri>
+      <pose>8.758108139038086 -18.01407766342163 0 0 0 0.699094874078 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone31</name>
+      <uri>model://Simple Stone</uri>
+      <pose>9.731289863586426 -13.781815528869629 0 0 0 1.5035750667 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone32</name>
+      <uri>model://Simple Stone</uri>
+      <pose>8.391861915588379 -10.544464111328125 0 0 0 4.84654453618 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone33</name>
+      <uri>model://Simple Stone</uri>
+      <pose>8.005762100219727 -4.132659912109375 0 0 0 5.75639616806 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone34</name>
+      <uri>model://Simple Stone</uri>
+      <pose>8.81647777557373 -0.4090919494628906 0 0 0 0.523650981618 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone35</name>
+      <uri>model://Simple Stone</uri>
+      <pose>9.693172454833984 3.0339126586914062 0 0 0 4.53069181389 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone36</name>
+      <uri>model://Simple Stone</uri>
+      <pose>9.006694793701172 8.31186294555664 0 0 0 2.12421972612 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone37</name>
+      <uri>model://Simple Stone</uri>
+      <pose>8.239546775817871 13.838325500488281 0 0 0 3.05083233256 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone38</name>
+      <uri>model://Simple Stone</uri>
+      <pose>8.433523178100586 23.317527770996094 0 0 0 6.24711309557 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone39</name>
+      <uri>model://Simple Stone</uri>
+      <pose>12.228715896606445 -22.554818391799927 0 0 0 2.42088195391 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone40</name>
+      <uri>model://Simple Stone</uri>
+      <pose>10.414350509643555 -6.7550048828125 0 0 0 2.84022449196 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone41</name>
+      <uri>model://Simple Stone</uri>
+      <pose>11.432368278503418 -3.402669906616211 0 0 0 4.38820142395 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone42</name>
+      <uri>model://Simple Stone</uri>
+      <pose>12.296886444091797 -0.0075092315673828125 0 0 0 3.45549216785 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone43</name>
+      <uri>model://Simple Stone</uri>
+      <pose>11.609607696533203 5.966793060302734 0 0 0 2.38811419032 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone44</name>
+      <uri>model://Simple Stone</uri>
+      <pose>10.722411155700684 11.366504669189453 0 0 0 1.13162484218 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone45</name>
+      <uri>model://Simple Stone</uri>
+      <pose>11.385347366333008 15.380546569824219 0 0 0 3.37126448561 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone46</name>
+      <uri>model://Simple Stone</uri>
+      <pose>10.268668174743652 20.051822662353516 0 0 0 1.88374882891 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone47</name>
+      <uri>model://Simple Stone</uri>
+      <pose>11.633270263671875 24.744457244873047 0 0 0 4.12680883016 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone48</name>
+      <uri>model://Simple Stone</uri>
+      <pose>14.72936725616455 -20.100993633270264 0 0 0 2.45873787409 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone49</name>
+      <uri>model://Simple Stone</uri>
+      <pose>13.399279594421387 -15.518721580505371 0 0 0 2.53511186983 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone50</name>
+      <uri>model://Simple Stone</uri>
+      <pose>13.061667442321777 -9.458044052124023 0 0 0 3.15896409902 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone51</name>
+      <uri>model://Simple Stone</uri>
+      <pose>14.671353340148926 -6.346223831176758 0 0 0 1.18785002042 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone52</name>
+      <uri>model://Simple Stone</uri>
+      <pose>13.739618301391602 3.1851444244384766 0 0 0 1.24780444742 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone53</name>
+      <uri>model://Simple Stone</uri>
+      <pose>13.308094024658203 18.309295654296875 0 0 0 4.52338300344 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone54</name>
+      <uri>model://Simple Stone</uri>
+      <pose>15.575995445251465 -24.028833985328674 0 0 0 5.88899408217 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone55</name>
+      <uri>model://Simple Stone</uri>
+      <pose>16.705867767333984 -16.80425453186035 0 0 0 2.5810908439 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone56</name>
+      <uri>model://Simple Stone</uri>
+      <pose>16.147207260131836 -13.345381736755371 0 0 0 5.62190050566 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone57</name>
+      <uri>model://Simple Stone</uri>
+      <pose>15.03872013092041 -2.8620376586914062 0 0 0 2.92478399153 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone58</name>
+      <uri>model://Simple Stone</uri>
+      <pose>15.998802185058594 0.5073471069335938 0 0 0 2.06915514702 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone59</name>
+      <uri>model://Simple Stone</uri>
+      <pose>17.027135848999023 4.396234512329102 0 0 0 5.98019733817 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone60</name>
+      <uri>model://Simple Stone</uri>
+      <pose>15.009492874145508 9.79010009765625 0 0 0 4.89230695377 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone61</name>
+      <uri>model://Simple Stone</uri>
+      <pose>15.999228477478027 13.150894165039062 0 0 0 5.07792436986 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone62</name>
+      <uri>model://Simple Stone</uri>
+      <pose>16.63960075378418 17.225059509277344 0 0 0 0.781016022348 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone63</name>
+      <uri>model://Simple Stone</uri>
+      <pose>15.253796577453613 22.988807678222656 0 0 0 0.0203440706014 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone64</name>
+      <uri>model://Simple Stone</uri>
+      <pose>19.1137752532959 -24.767676055431366 0 0 0 5.43866444582 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone65</name>
+      <uri>model://Simple Stone</uri>
+      <pose>17.958492279052734 -21.46013379096985 0 0 0 0.975396093779 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone66</name>
+      <uri>model://Simple Stone</uri>
+      <pose>19.421783447265625 -14.591041564941406 0 0 0 5.44649080197 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone67</name>
+      <uri>model://Simple Stone</uri>
+      <pose>19.374704360961914 -9.791415214538574 0 0 0 1.67466791516 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone68</name>
+      <uri>model://Simple Stone</uri>
+      <pose>18.249181747436523 -4.646047592163086 0 0 0 6.20533550461 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone69</name>
+      <uri>model://Simple Stone</uri>
+      <pose>19.039554595947266 -1.2328643798828125 0 0 0 2.22687396869 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone70</name>
+      <uri>model://Simple Stone</uri>
+      <pose>19.679927825927734 6.756000518798828 0 0 0 3.81555930974 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone71</name>
+      <uri>model://Simple Stone</uri>
+      <pose>18.964027404785156 11.248046875 0 0 0 5.92612266937 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone72</name>
+      <uri>model://Simple Stone</uri>
+      <pose>19.117427825927734 14.748188018798828 0 0 0 2.9122875343 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone73</name>
+      <uri>model://Simple Stone</uri>
+      <pose>18.66501235961914 22.189983367919922 0 0 0 5.35279125327 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone74</name>
+      <uri>model://Simple Stone</uri>
+      <pose>19.828716278076172 -18.497570991516113 0 0 0 5.21493034249 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone75</name>
+      <uri>model://Simple Stone</uri>
+      <pose>21.887075424194336 -7.349590301513672 0 0 0 2.08059958909 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone76</name>
+      <uri>model://Simple Stone</uri>
+      <pose>20.304285049438477 2.902345657348633 0 0 0 4.16755681706 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone77</name>
+      <uri>model://Simple Stone</uri>
+      <pose>22.18549919128418 9.204803466796875 0 0 0 4.05710088997 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone78</name>
+      <uri>model://Simple Stone</uri>
+      <pose>22.153165817260742 12.708152770996094 0 0 0 0.245738848461 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone79</name>
+      <uri>model://Simple Stone</uri>
+      <pose>20.217803955078125 19.049388885498047 0 0 0 5.29753068172 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone80</name>
+      <uri>model://Simple Stone</uri>
+      <pose>20.995426177978516 24.806026458740234 0 0 0 6.14784009118 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone81</name>
+      <uri>model://Simple Stone</uri>
+      <pose>22.573392868041992 -23.800041556358337 0 0 0 1.67570295603 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone82</name>
+      <uri>model://Simple Stone</uri>
+      <pose>23.03688621520996 -20.327335834503174 0 0 0 3.29812762458 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone83</name>
+      <uri>model://Simple Stone</uri>
+      <pose>22.907852172851562 -16.826212882995605 0 0 0 5.08654075096 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone84</name>
+      <uri>model://Simple Stone</uri>
+      <pose>22.690263748168945 -13.329476356506348 0 0 0 6.10689286085 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone85</name>
+      <uri>model://Simple Stone</uri>
+      <pose>23.2685546875 -4.1299591064453125 0 0 0 2.04256558116 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone86</name>
+      <uri>model://Simple Stone</uri>
+      <pose>23.635910034179688 3.9862194061279297 0 0 0 0.0417196206618 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone87</name>
+      <uri>model://Simple Stone</uri>
+      <pose>22.293529510498047 16.22699737548828 0 0 0 4.59999869614 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone88</name>
+      <uri>model://Simple Stone</uri>
+      <pose>26.90976905822754 -22.56728196144104 0 0 0 3.39481634358 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone89</name>
+      <uri>model://Simple Stone</uri>
+      <pose>25.559326171875 -11.318757057189941 0 0 0 3.70747882279 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone90</name>
+      <uri>model://Simple Stone</uri>
+      <pose>26.045072555541992 -7.849092483520508 0 0 0 2.16895259716 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone91</name>
+      <uri>model://Simple Stone</uri>
+      <pose>26.772451400756836 -4.421932220458984 0 0 0 1.88057177191 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone92</name>
+      <uri>model://Simple Stone</uri>
+      <pose>24.89984703063965 -1.0294113159179688 0 0 0 6.01437302925 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone93</name>
+      <uri>model://Simple Stone</uri>
+      <pose>26.85324478149414 2.599397659301758 0 0 0 3.29641073576 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone94</name>
+      <uri>model://Simple Stone</uri>
+      <pose>26.012752532958984 6.720544815063477 0 0 0 1.42936977916 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone95</name>
+      <uri>model://Simple Stone</uri>
+      <pose>25.6738338470459 10.86910629272461 0 0 0 0.0814556632956 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone96</name>
+      <uri>model://Simple Stone</uri>
+      <pose>25.249805450439453 14.346851348876953 0 0 0 5.7040448555 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone97</name>
+      <uri>model://Simple Stone</uri>
+      <pose>25.049348831176758 21.778270721435547 0 0 0 6.16295362351 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone98</name>
+      <uri>model://Simple Stone</uri>
+      <pose>27.449081420898438 -17.726828575134277 0 0 0 4.38775271149 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone99</name>
+      <uri>model://Simple Stone</uri>
+      <pose>29.274639129638672 -9.813483238220215 0 0 0 1.4358198409 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone100</name>
+      <uri>model://Simple Stone</uri>
+      <pose>28.39168357849121 -1.3150691986083984 0 0 0 2.26104770676 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone101</name>
+      <uri>model://Simple Stone</uri>
+      <pose>29.641193389892578 4.721153259277344 0 0 0 5.4628908849 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone102</name>
+      <uri>model://Simple Stone</uri>
+      <pose>29.19062042236328 8.195560455322266 0 0 0 1.23650298468 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone103</name>
+      <uri>model://Simple Stone</uri>
+      <pose>29.65348243713379 13.78323745727539 0 0 0 1.41773366159 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone104</name>
+      <uri>model://Simple Stone</uri>
+      <pose>27.328933715820312 17.166736602783203 0 0 0 3.49585561532 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone105</name>
+      <uri>model://Simple Stone</uri>
+      <pose>28.485578536987305 22.461524963378906 0 0 0 2.40444492325 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone106</name>
+      <uri>model://Simple Stone</uri>
+      <pose>29.925745010375977 -24.35008955001831 0 0 0 3.10152844043 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone107</name>
+      <uri>model://Simple Stone</uri>
+      <pose>31.156639099121094 -20.442739486694336 0 0 0 0.448865320271 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone108</name>
+      <uri>model://Simple Stone</uri>
+      <pose>30.865678787231445 -16.951342582702637 0 0 0 5.8672148204 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone109</name>
+      <uri>model://Simple Stone</uri>
+      <pose>30.2380428314209 -13.244346618652344 0 0 0 3.12263666248 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone110</name>
+      <uri>model://Simple Stone</uri>
+      <pose>31.789575576782227 -7.374301910400391 0 0 0 5.32599586663 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone111</name>
+      <uri>model://Simple Stone</uri>
+      <pose>30.489870071411133 -4.120800018310547 0 0 0 5.74428160304 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone112</name>
+      <uri>model://Simple Stone</uri>
+      <pose>30.647747039794922 1.3653583526611328 0 0 0 2.7446810676 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone113</name>
+      <uri>model://Simple Stone</uri>
+      <pose>31.51616859436035 10.815929412841797 0 0 0 4.10897053058 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone114</name>
+      <uri>model://Simple Stone</uri>
+      <pose>30.8314266204834 17.082775115966797 0 0 0 0.435188547299 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone115</name>
+      <uri>model://Simple Stone</uri>
+      <pose>31.413536071777344 20.537578582763672 0 0 0 4.73083541611 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone116</name>
+      <uri>model://Simple Stone</uri>
+      <pose>31.103649139404297 24.78966522216797 0 0 0 5.38432267548 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone117</name>
+      <uri>model://Simple Stone</uri>
+      <pose>33.25692367553711 -23.264838933944702 0 0 0 3.81286291467 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone118</name>
+      <uri>model://Simple Stone</uri>
+      <pose>33.93968200683594 -15.270567893981934 0 0 0 1.7423907127 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone119</name>
+      <uri>model://Simple Stone</uri>
+      <pose>33.43180847167969 -11.80407428741455 0 0 0 5.09405011131 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone120</name>
+      <uri>model://Simple Stone</uri>
+      <pose>33.99336624145508 -4.125532150268555 0 0 0 2.9988090979 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone121</name>
+      <uri>model://Simple Stone</uri>
+      <pose>33.681522369384766 -0.38698768615722656 0 0 0 1.43811514341 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone122</name>
+      <uri>model://Simple Stone</uri>
+      <pose>33.05530548095703 3.9347991943359375 0 0 0 4.56252863384 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone123</name>
+      <uri>model://Simple Stone</uri>
+      <pose>32.74839782714844 7.536277770996094 0 0 0 3.71581293361 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone124</name>
+      <uri>model://Simple Stone</uri>
+      <pose>33.783138275146484 15.195472717285156 0 0 0 3.24156795488 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone125</name>
+      <uri>model://Simple Stone</uri>
+      <pose>34.46226501464844 18.811378479003906 0 0 0 5.28148441814 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone126</name>
+      <uri>model://Simple Stone</uri>
+      <pose>34.572425842285156 24.29763412475586 0 0 0 3.04425234324 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone127</name>
+      <uri>model://Simple Stone</uri>
+      <pose>35.09507751464844 -20.282272815704346 0 0 0 0.603665342739 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone128</name>
+      <uri>model://Simple Stone</uri>
+      <pose>36.8359489440918 -17.241899490356445 0 0 0 0.7684499274 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone129</name>
+      <uri>model://Simple Stone</uri>
+      <pose>36.735816955566406 -12.969420433044434 0 0 0 3.11747799155 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone130</name>
+      <uri>model://Simple Stone</uri>
+      <pose>35.33559036254883 -8.862966537475586 0 0 0 5.08267263912 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone131</name>
+      <uri>model://Simple Stone</uri>
+      <pose>37.06272888183594 -5.814769744873047 0 0 0 2.20143375973 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone132</name>
+      <uri>model://Simple Stone</uri>
+      <pose>36.89134979248047 7.9680938720703125 0 0 0 5.21429079079 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone133</name>
+      <uri>model://Simple Stone</uri>
+      <pose>35.01785659790039 10.9285888671875 0 0 0 4.77064376462 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone134</name>
+      <uri>model://Simple Stone</uri>
+      <pose>37.69131088256836 -23.519338130950928 0 0 0 3.60291734699 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone135</name>
+      <uri>model://Simple Stone</uri>
+      <pose>38.746604919433594 -20.178549766540527 0 0 0 0.493500616795 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone136</name>
+      <uri>model://Simple Stone</uri>
+      <pose>39.516788482666016 -8.315189361572266 0 0 0 3.12344082191 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone137</name>
+      <uri>model://Simple Stone</uri>
+      <pose>37.37003707885742 -2.3247737884521484 0 0 0 2.42870878229 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone138</name>
+      <uri>model://Simple Stone</uri>
+      <pose>37.91572570800781 1.6116981506347656 0 0 0 1.9437472101 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone139</name>
+      <uri>model://Simple Stone</uri>
+      <pose>38.768402099609375 5.009853363037109 0 0 0 0.507222631463 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone140</name>
+      <uri>model://Simple Stone</uri>
+      <pose>38.34856033325195 12.01529312133789 0 0 0 3.84182032126 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone141</name>
+      <uri>model://Simple Stone</uri>
+      <pose>37.64593505859375 17.340042114257812 0 0 0 5.30667681945 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone142</name>
+      <uri>model://Simple Stone</uri>
+      <pose>37.79338073730469 20.840438842773438 0 0 0 4.15083269572 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone143</name>
+      <uri>model://Simple Stone</uri>
+      <pose>38.07575225830078 24.332542419433594 0 0 0 1.38869625464 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone144</name>
+      <uri>model://Simple Stone</uri>
+      <pose>41.76980972290039 -23.676743030548096 0 0 0 5.34648158306 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone145</name>
+      <uri>model://Simple Stone</uri>
+      <pose>41.05705642700195 -15.141461372375488 0 0 0 1.06520714608 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone146</name>
+      <uri>model://Simple Stone</uri>
+      <pose>40.112667083740234 -11.767643928527832 0 0 0 2.96848705716 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone147</name>
+      <uri>model://Simple Stone</uri>
+      <pose>40.27325439453125 -4.412256240844727 0 0 0 6.1677617034 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone148</name>
+      <uri>model://Simple Stone</uri>
+      <pose>41.886016845703125 2.3336048126220703 0 0 0 5.01673169537 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone149</name>
+      <uri>model://Simple Stone</uri>
+      <pose>41.39558029174805 10.286079406738281 0 0 0 0.220111407142 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone150</name>
+      <uri>model://Simple Stone</uri>
+      <pose>41.6441535949707 15.833484649658203 0 0 0 5.52213010074 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone151</name>
+      <uri>model://Simple Stone</uri>
+      <pose>41.34075164794922 19.32382583618164 0 0 0 3.60255119734 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone152</name>
+      <uri>model://Simple Stone</uri>
+      <pose>41.23871994018555 22.82583999633789 0 0 0 4.7948572546 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone153</name>
+      <uri>model://Simple Stone</uri>
+      <pose>42.559349060058594 -20.26336669921875 0 0 0 5.34089754173 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone154</name>
+      <uri>model://Simple Stone</uri>
+      <pose>43.986209869384766 -17.06358766555786 0 0 0 0.42102709097 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone155</name>
+      <uri>model://Simple Stone</uri>
+      <pose>42.850852966308594 -9.391548156738281 0 0 0 5.33360535561 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone156</name>
+      <uri>model://Simple Stone</uri>
+      <pose>43.49044418334961 -5.799413681030273 0 0 0 3.67121279894 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone157</name>
+      <uri>model://Simple Stone</uri>
+      <pose>42.57844543457031 -1.7739582061767578 0 0 0 5.18466725029 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone158</name>
+      <uri>model://Simple Stone</uri>
+      <pose>42.17572784423828 5.825105667114258 0 0 0 3.61110821622 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone159</name>
+      <uri>model://Simple Stone</uri>
+      <pose>44.53394317626953 13.852672576904297 0 0 0 2.5824397631 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone160</name>
+      <uri>model://Simple Stone</uri>
+      <pose>44.22773742675781 24.653484344482422 0 0 0 2.55722843927 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone161</name>
+      <uri>model://Simple Stone</uri>
+      <pose>45.72221374511719 -23.095585227012634 0 0 0 2.76578093095 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone162</name>
+      <uri>model://Simple Stone</uri>
+      <pose>45.461307525634766 -11.728219985961914 0 0 0 0.920830235083 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone163</name>
+      <uri>model://Simple Stone</uri>
+      <pose>46.900123596191406 -4.994060516357422 0 0 0 4.0321267057 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone164</name>
+      <uri>model://Simple Stone</uri>
+      <pose>46.482913970947266 -1.5154895782470703 0 0 0 5.75936744644 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone165</name>
+      <uri>model://Simple Stone</uri>
+      <pose>45.344566345214844 4.330787658691406 0 0 0 0.578428658794 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone166</name>
+      <uri>model://Simple Stone</uri>
+      <pose>45.10379409790039 10.395824432373047 0 0 0 4.45806937617 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone167</name>
+      <uri>model://Simple Stone</uri>
+      <pose>45.453643798828125 18.03506851196289 0 0 0 2.88668355459 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone168</name>
+      <uri>model://Simple Stone</uri>
+      <pose>45.798030853271484 21.521602630615234 0 0 0 2.45231163621 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone169</name>
+      <uri>model://Simple Stone</uri>
+      <pose>48.85320281982422 -21.523508310317993 0 0 0 4.16186034278 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone170</name>
+      <uri>model://Simple Stone</uri>
+      <pose>47.21332550048828 -18.427492141723633 0 0 0 6.11941378587 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone171</name>
+      <uri>model://Simple Stone</uri>
+      <pose>47.3690299987793 -14.66677474975586 0 0 0 5.17329556562 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone172</name>
+      <uri>model://Simple Stone</uri>
+      <pose>48.00240707397461 -8.319639205932617 0 0 0 4.11780609313 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone173</name>
+      <uri>model://Simple Stone</uri>
+      <pose>49.15650177001953 1.7550048828125 0 0 0 6.17506014726 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone174</name>
+      <uri>model://Simple Stone</uri>
+      <pose>48.73676681518555 5.233270645141602 0 0 0 6.24238044853 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone175</name>
+      <uri>model://Simple Stone</uri>
+      <pose>49.35905456542969 8.68106460571289 0 0 0 3.58823346759 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone176</name>
+      <uri>model://Simple Stone</uri>
+      <pose>49.03737258911133 12.16976547241211 0 0 0 0.789804092318 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone177</name>
+      <uri>model://Simple Stone</uri>
+      <pose>47.826324462890625 15.457298278808594 0 0 0 4.83918449431 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone178</name>
+      <uri>model://Simple Stone</uri>
+      <pose>48.77776336669922 19.678855895996094 0 0 0 5.06522713223 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone179</name>
+      <uri>model://Simple Stone</uri>
+      <pose>47.72923278808594 24.53502655029297 0 0 0 6.26416250436 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone180</name>
+      <uri>model://Simple Stone</uri>
+      <pose>49.8447380065918 -11.299629211425781 0 0 0 0.669391594307 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>columnSimple Stone181</name>
+      <uri>model://Simple Stone</uri>
+      <pose>49.90219497680664 -3.1879405975341797 0 0 0 5.14608628184 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high0</name>
+      <uri>model://fence_high</uri>
+      <pose>51.0317919254303 -22.92986273765564 0 0 0 1.13360861744 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid1</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>50.118595473468304 -15.49662971496582 0 0 0 4.01963347949 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid2</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>53.14160966873169 -9.640914916992188 0 0 0 3.89816962319 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high3</name>
+      <uri>model://fence_high</uri>
+      <pose>51.039355635643005 -3.734508514404297 0 0 0 5.22521587261 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid4</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>52.378965854644775 5.40666389465332 0 0 0 3.27412428061 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid5</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>53.11475992202759 22.111785888671875 0 0 0 3.16630532886 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high6</name>
+      <uri>model://fence_high</uri>
+      <pose>54.45017623901367 -19.274089813232422 0 0 0 4.01487054936 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high7</name>
+      <uri>model://fence_high</uri>
+      <pose>54.97769355773926 -14.296967506408691 0 0 0 1.63507328907 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high8</name>
+      <uri>model://fence_high</uri>
+      <pose>55.766348361968994 -5.379369735717773 0 0 0 4.17914564533 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U9</name>
+      <uri>model://Simple U</uri>
+      <pose>54.0579514503479 0.69488525390625 0 0 0 1.94537556084 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U10</name>
+      <uri>model://Simple U</uri>
+      <pose>53.575544595718384 10.266521453857422 0 0 0 0.126301481004 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid11</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>54.70700645446777 15.617908477783203 0 0 0 2.92536089931 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid12</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>57.884403228759766 -22.914984226226807 0 0 0 0.722575783859 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid13</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>60.431626319885254 -18.28468418121338 0 0 0 0.17253654388 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid14</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>58.227078437805176 -9.928287506103516 0 0 0 0.759278185182 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid15</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>58.65241813659668 -1.290283203125 0 0 0 5.20209615599 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high16</name>
+      <uri>model://fence_high</uri>
+      <pose>58.73498725891113 4.830774307250977 0 0 0 1.2081727382 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid17</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>58.57789707183838 10.103748321533203 0 0 0 4.74789160868 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high18</name>
+      <uri>model://fence_high</uri>
+      <pose>59.672165870666504 14.987663269042969 0 0 0 0.945494005643 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high19</name>
+      <uri>model://fence_high</uri>
+      <pose>57.66843891143799 24.18880844116211 0 0 0 3.55020542962 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid20</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>63.23489570617676 -22.43097233772278 0 0 0 4.19147572748 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid21</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>61.869550704956055 -13.49068832397461 0 0 0 2.50524815073 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high22</name>
+      <uri>model://fence_high</uri>
+      <pose>61.36879062652588 -6.03217887878418 0 0 0 0.414135514197 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high23</name>
+      <uri>model://fence_high</uri>
+      <pose>63.64920616149902 -1.5768756866455078 0 0 0 2.85809833731 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high24</name>
+      <uri>model://fence_high</uri>
+      <pose>63.5390682220459 3.426912307739258 0 0 0 5.73406726587 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid25</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>61.610965728759766 21.105548858642578 0 0 0 2.10641255831 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid26</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>67.65835571289062 -24.772558212280273 0 0 0 6.00682350142 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid27</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>66.60265731811523 -17.18649673461914 0 0 0 6.15441874767 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid28</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>66.7005500793457 -12.182454109191895 0 0 0 3.03433992994 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high29</name>
+      <uri>model://fence_high</uri>
+      <pose>67.03730201721191 -7.18879508972168 0 0 0 6.17127113432 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid30</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>64.23334121704102 9.359809875488281 0 0 0 3.87130460074 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid31</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>64.30308532714844 16.886245727539062 0 0 0 2.73507676306 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high32</name>
+      <uri>model://fence_high</uri>
+      <pose>64.99499893188477 24.793140411376953 0 0 0 6.26696968051 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U33</name>
+      <uri>model://Simple U</uri>
+      <pose>69.6857967376709 -2.941974639892578 0 0 0 1.45040754766 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high34</name>
+      <uri>model://fence_high</uri>
+      <pose>70.94706916809082 1.901498794555664 0 0 0 4.08057383106 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U35</name>
+      <uri>model://Simple U</uri>
+      <pose>67.9042911529541 5.87535285949707 0 0 0 2.09654529085 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U36</name>
+      <uri>model://Simple U</uri>
+      <pose>69.04156112670898 10.749431610107422 0 0 0 2.42114007287 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U37</name>
+      <uri>model://Simple U</uri>
+      <pose>69.1780014038086 15.752571105957031 0 0 0 4.67959258347 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U38</name>
+      <uri>model://Simple U</uri>
+      <pose>68.9942455291748 20.754196166992188 0 0 0 1.67679674999 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid39</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>73.61554527282715 -24.951502591371536 0 0 0 1.96678132619 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U40</name>
+      <uri>model://Simple U</uri>
+      <pose>72.60266876220703 -20.050063610076904 0 0 0 2.01629408321 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U41</name>
+      <uri>model://Simple U</uri>
+      <pose>74.05137062072754 -15.259313583374023 0 0 0 4.57545823927 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high42</name>
+      <uri>model://fence_high</uri>
+      <pose>71.25839614868164 -10.114587783813477 0 0 0 0.764182931287 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high43</name>
+      <uri>model://fence_high</uri>
+      <pose>74.21930885314941 -5.062658309936523 0 0 0 2.243618091 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid44</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>74.04096984863281 10.985946655273438 0 0 0 3.9438476849 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high45</name>
+      <uri>model://fence_high</uri>
+      <pose>74.05504035949707 16.87708282470703 0 0 0 5.75877354846 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U46</name>
+      <uri>model://Simple U</uri>
+      <pose>72.45759391784668 24.367401123046875 0 0 0 0.136451337227 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid47</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>77.78875923156738 -0.45194244384765625 0 0 0 5.95318053153 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U48</name>
+      <uri>model://Simple U</uri>
+      <pose>77.98178291320801 4.549333572387695 0 0 0 0.186390739304 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U49</name>
+      <uri>model://Simple U</uri>
+      <pose>77.95903396606445 20.008991241455078 0 0 0 0.0707930417367 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U50</name>
+      <uri>model://Simple U</uri>
+      <pose>81.37838745117188 -23.946004033088684 0 0 0 5.90774600641 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid51</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>79.71161460876465 -18.976111888885498 0 0 0 0.484515501731 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U52</name>
+      <uri>model://Simple U</uri>
+      <pose>78.55118751525879 -13.068039894104004 0 0 0 2.78293355722 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high53</name>
+      <uri>model://fence_high</uri>
+      <pose>80.73258972167969 -8.563430786132812 0 0 0 4.55773825119 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high54</name>
+      <uri>model://fence_high</uri>
+      <pose>81.6451187133789 -3.6423206329345703 0 0 0 4.84681102954 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U55</name>
+      <uri>model://Simple U</uri>
+      <pose>79.42312622070312 9.342304229736328 0 0 0 6.1936318235 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid56</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>78.295654296875 14.218658447265625 0 0 0 1.43078757241 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high57</name>
+      <uri>model://fence_high</uri>
+      <pose>84.26757049560547 -16.904088020324707 0 0 0 1.66472214805 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high58</name>
+      <uri>model://fence_high</uri>
+      <pose>84.46066665649414 -11.902814865112305 0 0 0 2.29891937047 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid59</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>82.75128173828125 3.032135009765625 0 0 0 6.2251376964 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid60</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>84.27034759521484 8.09552001953125 0 0 0 2.5270846999 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high61</name>
+      <uri>model://fence_high</uri>
+      <pose>83.02408981323242 15.859367370605469 0 0 0 3.73993836127 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high62</name>
+      <uri>model://fence_high</uri>
+      <pose>82.34706497192383 22.41631317138672 0 0 0 3.92191938198 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high63</name>
+      <uri>model://fence_high</uri>
+      <pose>85.83025360107422 -21.658881187438965 0 0 0 3.31741074823 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high64</name>
+      <uri>model://fence_high</uri>
+      <pose>85.97997283935547 -6.144136428833008 0 0 0 0.584791006061 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high65</name>
+      <uri>model://fence_high</uri>
+      <pose>87.31541061401367 0.9781723022460938 0 0 0 2.72938728222 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U66</name>
+      <uri>model://Simple U</uri>
+      <pose>87.43560791015625 13.495365142822266 0 0 0 2.38188164985 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid67</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>87.02279663085938 18.86941146850586 0 0 0 4.19533769067 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U68</name>
+      <uri>model://Simple U</uri>
+      <pose>88.76330947875977 23.562026977539062 0 0 0 4.23085019607 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U69</name>
+      <uri>model://Simple U</uri>
+      <pose>90.12329483032227 -24.231783092021942 0 0 0 1.92570284449 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid70</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>89.4610481262207 -12.117773056030273 0 0 0 5.51453538425 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high71</name>
+      <uri>model://fence_high</uri>
+      <pose>91.9268798828125 -6.782184600830078 0 0 0 0.68154529814 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid72</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>89.2744026184082 7.998241424560547 0 0 0 0.632404342988 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U73</name>
+      <uri>model://Simple U</uri>
+      <pose>92.35869216918945 14.397193908691406 0 0 0 2.27934693682 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U74</name>
+      <uri>model://Simple U</uri>
+      <pose>91.9591064453125 19.695762634277344 0 0 0 0.391755587963 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high75</name>
+      <uri>model://fence_high</uri>
+      <pose>95.1146469116211 -24.60114935040474 0 0 0 3.23284584103 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U76</name>
+      <uri>model://Simple U</uri>
+      <pose>93.19325256347656 -15.452537536621094 0 0 0 2.86370314695 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid77</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>93.97762680053711 -2.216611862182617 0 0 0 6.04210341903 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U78</name>
+      <uri>model://Simple U</uri>
+      <pose>92.46309280395508 4.140485763549805 0 0 0 0.487528358337 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high79</name>
+      <uri>model://fence_high</uri>
+      <pose>95.90899658203125 7.770328521728516 0 0 0 2.61033600081 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high80</name>
+      <uri>model://fence_high</uri>
+      <pose>96.06568145751953 -19.551218509674072 0 0 0 0.246304409226 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high81</name>
+      <uri>model://fence_high</uri>
+      <pose>98.14481353759766 -14.723092079162598 0 0 0 4.42526316958 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high82</name>
+      <uri>model://fence_high</uri>
+      <pose>97.23254776000977 -7.356666564941406 0 0 0 4.25126863568 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid83</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>99.0380973815918 -2.688688278198242 0 0 0 5.09208108765 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U84</name>
+      <uri>model://Simple U</uri>
+      <pose>96.90836715698242 1.8405799865722656 0 0 0 4.02360566422 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U85</name>
+      <uri>model://Simple U</uri>
+      <pose>98.46069717407227 15.469467163085938 0 0 0 0.185331874135 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple Pyramid86</name>
+      <uri>model://Simple Pyramid</uri>
+      <pose>96.93484115600586 20.2362060546875 0 0 0 6.15521523818 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedSimple U87</name>
+      <uri>model://Simple U</uri>
+      <pose>99.2684326171875 24.66388702392578 0 0 0 3.83806916787 </pose>
+      <static>true</static>
+    </include>
+    <include>
+      <name>mixedfence_high88</name>
+      <uri>model://fence_high</uri>
+      <pose>99.97644805908203 10.686809539794922 0 0 0 0.475704571548 </pose>
+      <static>true</static>
+    </include>
+  </world>
+</sdf>

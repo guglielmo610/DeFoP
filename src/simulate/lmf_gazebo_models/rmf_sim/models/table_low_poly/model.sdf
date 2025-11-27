@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="table_low_poly">
+    <static>true</static>
+    <link name="link">
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <mass>100.0</mass>
+        <inertia>
+          <ixx>100.0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>100.0</iyy>
+          <iyz>0</iyz>
+          <izz>100.0</izz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://table_low_poly/meshes/table.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://table_low_poly/meshes/table.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+    </link>
+  </model>
+</sdf>

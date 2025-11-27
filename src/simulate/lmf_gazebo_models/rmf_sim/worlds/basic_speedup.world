@@ -1,0 +1,97 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Only one ROS interface plugin is required per world, as any other plugin can connect a Gazebo
+         topic to a ROS topic (or vise versa). -->
+    <plugin name="ros_interface_plugin" filename="librotors_gazebo_ros_interface_plugin.so"/>
+
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>47.3667</latitude_deg>
+      <longitude_deg>8.5500</longitude_deg>
+      <elevation>500.0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <physics type='ode'>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>1000</iters>
+          <sor>1.3</sor>
+        </solver>
+        <constraints>
+          <cfm>0</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>100</contact_max_correcting_vel>
+          <contact_surface_layer>0.001</contact_surface_layer>
+        </constraints>
+      </ode>
+      <max_step_size>0.005</max_step_size>
+      <real_time_factor>10</real_time_factor>
+      <real_time_update_rate>600</real_time_update_rate>
+      <!-- <real_time_update_rate>0</real_time_update_rate> -->
+      <gravity>0 0 -9.8</gravity>
+    </physics>
+    <state world_name='default'>
+      <sim_time>16536 140000000</sim_time>
+      <real_time>2304 106032291</real_time>
+      <wall_time>1624954791 512008720</wall_time>
+      <iterations>1043026</iterations>
+      <model name='grey_wall_2'>
+        <pose frame=''>8.0 6.0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>8.0 6.0 5.0 0 0 1.5708</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+    </state>
+    <model name='grey_wall_2'>
+      <static>1</static>
+      <link name='link'>
+        <pose frame=''>0 0 5.0 0 0 1.5708</pose>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>22.0 0.2 10.0</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>22.0 0.2 10.0</size>
+            </box>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>8.0 6.0 0 0 -0 0</pose>
+    </model>
+  </world>
+</sdf>

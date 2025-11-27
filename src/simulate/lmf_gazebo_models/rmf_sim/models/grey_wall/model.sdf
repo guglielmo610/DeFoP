@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="grey_wall">
+    <static>true</static>
+    <link name="link">
+      <pose>0 0 5.0 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>1 1 1</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <box>
+            <size>1 1 1</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://floor_and_walls/materials/scripts</uri>
+            <uri>model://floor_and_walls/materials/textures</uri>
+            <name>image0</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--
+  Copyright 2015 Fadri Furrer, ASL, ETH Zurich, Switzerland
+  Copyright 2015 Michael Burri, ASL, ETH Zurich, Switzerland
+  Copyright 2015 Mina Kamel, ASL, ETH Zurich, Switzerland
+  Copyright 2015 Janosch Nikolic, ASL, ETH Zurich, Switzerland
+  Copyright 2015 Markus Achtelik, ASL, ETH Zurich, Switzerland
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<robot name="asymmetric_quadrotor" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Instantiate asymmetric_quadrotor with odometry sensor-->
+  <xacro:include filename="$(find rmf_sim)/rotors/urdf/mav_generic_odometry_sensor.gazebo" />
+
+  <xacro:property name="robot_name" value="$(arg mav_name)"/>
+  <xacro:property name="enable_depth" value="true"/>
+
+  <!-- Add a depth sensor  -->
+  <xacro:vi_sensor_depth_macro
+    namespace="${namespace}/rgbd" parent_link="${namespace}/base_link"
+    camera_suffix="depth" 
+    frame_rate="15.0" 
+    max_range="10.0"
+    min_range="0.2"
+    horizontal_fov="1.5184"
+    width="480"
+    height="270"
+    K1="0.0"
+    K2="0.0"
+    T1="0.0"
+    T2="0.0"
+    K3="0.0">
+    <origin xyz="0.2 0.0 -0.05" rpy="0 0 0" />
+  </xacro:vi_sensor_depth_macro>
+  
+  <!-- Add an 0S0-128 lidar -->
+  <!-- <xacro:include filename="$(find lidar_description)/urdf/OS0-128.urdf.xacro"/>
+  <OS0-128 parent="${namespace}/base_link" name="${namespace}/os0" topic="/os0_points" hz="10" samples="220">
+    <origin xyz="0 0 0.1" rpy="0 0 0" />
+  </OS0-128> -->
+
+</robot>

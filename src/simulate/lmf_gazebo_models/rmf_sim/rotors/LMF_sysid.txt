@@ -1,0 +1,2 @@
+yaw rate: tau 0.1, gain 0.92, no delay
+vel_xyz: tau 0.4, gain 0.9, delay ?

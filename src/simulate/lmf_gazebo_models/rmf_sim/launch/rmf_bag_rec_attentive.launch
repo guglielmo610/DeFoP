@@ -1,0 +1,19 @@
+<launch>
+    <arg name="rosbag_record" default="true"/>
+    <arg name="record_path" default="/home/huan/ROSBAGS"/>
+    <node pkg="rosbag" type="record" name="recorder" output="screen" respawn="false" if="$(arg rosbag_record)" args="--split --size=2048 -o $(arg record_path)
+        /tf_static
+        /tf
+        /trajectory
+        /pcl_with_interestingness
+        /delta/rgbd/camera_depth/depth
+        /delta/rgbd/camera_rgb/image_raw
+        /delta/odometry_sensor1/odometry
+        /current_mask
+        /gazebo/parameter_descriptions
+        /delta/bestRePlanningPath
+        /delta/bestPlanningPath
+        /delta/planningPath
+        /delta/rePlanningPath
+    "/>
+</launch>

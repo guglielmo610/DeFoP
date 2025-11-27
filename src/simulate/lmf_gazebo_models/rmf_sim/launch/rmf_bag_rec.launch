@@ -1,0 +1,15 @@
+<launch>
+    <arg name="rosbag_record" default="true"/>
+    <arg name="record_path" default="/home/huan/ROSBAGS"/>
+    <node pkg="rosbag" type="record" name="recorder" output="screen" respawn="false" if="$(arg rosbag_record)" args="--split --size=2048 -o $(arg record_path)/ORACLE
+        /tf_static
+        /tf
+        /trajectory
+        /delta/rgbd/camera_depth/depth/points_drop
+        /delta/rgbd/camera_depth/depth
+        /delta/odometry_sensor1/odometry
+        /current_mask
+        /gazebo/parameter_descriptions
+    "/>
+    <node pkg="topic_tools" type="drop" name="cam_drop" args="/delta/rgbd/camera_depth/depth/points 1 2" />
+</launch>

@@ -1,0 +1,25 @@
+repositories:
+  src/lmf_sim:
+    type: git
+    url: git@github.com:ntnu-arl/lmf_sim.git
+    version: master
+  src/planning/ORACLE:
+    type: git
+    url: git@github.com:ntnu-arl/ORACLE.git
+  src/planning/lmf_planner_srvs_msgs:
+    type: git
+    url: git@github.com:ntnu-arl/lmf_planner_srvs_msgs.git
+    version: main
+  src/planning/sevae:
+    type: git
+    url: git@github.com:ntnu-arl/sevae.git
+  src/simulate/lmf_gazebo_models:
+    type: git
+    url: git@github.com:ntnu-arl/lmf_gazebo_models.git
+  src/simulate/rotors_simulator:
+    type: git
+    url: git@github.com:ntnu-arl/rotors_simulator.git
+    version: dev/vel_yaw_command
+  src/misc/mav_comm:
+    type: git
+    url: git@github.com:ethz-asl/mav_comm.git

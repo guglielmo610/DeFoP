@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>lmf_planner_srvs_msgs</name>
+  <version>1.0.0</version>
+  <description>Custom services and messages for LMF planner</description>
+
+  <maintainer email="dinh.h.nguyen@ntnu.no">Dinh Huan Nguyen</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>message_generation</depend>
+  <depend>std_msgs</depend>
+  <depend>message_runtime</depend>
+
+</package>

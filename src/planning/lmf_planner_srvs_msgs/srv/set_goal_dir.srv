@@ -1,0 +1,6 @@
+# Add a rectangle to the geofence list.
+Header header
+
+float32 goal_dir
+-------
+bool success

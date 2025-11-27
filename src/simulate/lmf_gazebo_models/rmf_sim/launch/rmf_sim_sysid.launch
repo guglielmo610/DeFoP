@@ -1,0 +1,127 @@
+<launch>
+  <!-- All settings -->
+  <arg name="rosbag_record" value="false" />
+  <arg name="robot_name" default="delta" />
+  <arg name="robot_name_collision_check" default="delta_collision_check" />
+  <arg name="gazebo_gui_en" default="false" />
+  <arg name="use_sim_time" default="true" />
+  <arg name="rviz_en" default="false" />
+  <arg name="launch_prefix" default="" />
+  <param name="use_sim_time" value="$(arg use_sim_time)" />
+
+  <env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:$(find rmf_sim)/models"/>
+  <env name="GAZEBO_RESOURCE_PATH" value="${GAZEBO_RESOURCE_PATH}:$(find rmf_sim)/models" />
+  
+  <arg name="world_file" default="$(find rmf_sim)/worlds/basic_speedup.world" />
+
+  <!-- Recording -->
+  <arg name="ROSBAG_SUBFOLDER_NAME" value="gazebo_sysid" />
+  <arg name="ROSBAG_PREFIX" value="" />
+  <arg name="ROSBAGS_FOLDER" value="" />
+  <node pkg="rosbag" type="record" name="recorder" output="screen" respawn="false" if="$(arg rosbag_record)" args="--split --size=2048 -o $(arg ROSBAGS_FOLDER)/$(arg ROSBAG_PREFIX)
+/delta/odometry_sensor1/odometry
+/delta/cmd_velocity_stamped
+" />
+
+  <!-- Static TF -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="tf_depth" args="0.09 0.04 0.024 -1.570796 0.0 -1.570796 $(arg robot_name)/base_link $(arg robot_name)/rgbd/camera_depth_optical_center_link" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="tf_rgb" args="0.09 0.04 0.024 -1.570796 0.0 -1.570796 $(arg robot_name)/base_link $(arg robot_name)/rgbd/camera_rgb_optical_center_link" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="tf_depth_noetic" args="0.09 0.04 0.024 -1.570796 0.0 -1.570796 $(arg robot_name)/base_link camera_depth_optical_center_link" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="tf_rgb_noetic" args="0.09 0.04 0.024 -1.570796 0.0 -1.570796 $(arg robot_name)/base_link camera_rgb_optical_center_link" />
+
+  <!-- ROS Gazebo  -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_file)" />
+    <arg name="gui" value="$(arg gazebo_gui_en)" />
+    <arg name="use_sim_time" value="$(arg use_sim_time)" />
+    <arg name="paused" value="false" />
+    <arg name="verbose" value="false" />
+  </include>
+
+  <group ns="$(arg robot_name)">
+    <!-- <node name="img_throttler" type="throttle" pkg="topic_tools" args="messages vi_sensor/camera_depth/depth/points 5 vi_sensor/camera_depth/depth/points_throttled" /> -->
+
+    <!-- MAV launch -->
+    <include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+      <arg name="mav_name" value="$(arg robot_name)" />
+      <arg name="model" value="$(find rmf_sim)/rotors/urdf/$(arg robot_name).gazebo" />
+      <arg name="enable_ground_truth" value="true" />
+      <arg name="x" value="0.0" />
+      <arg name="y" value="0.0" />
+      <arg name="z" value="0.0" />
+    </include>
+
+    <node name="acc_command_converter" pkg="rotors_control" type="acc_command_converter" output="screen">
+      <remap from="odometry" to="odometry_sensor1/odometry" />
+      <param name="use_vehicle_frame" value="true" /> <!-- goal and acc commands are (not) in vehicle frame -->
+      <param name="use_yaw_stabilize" value="false" />
+      <param name="fixed_height" value="false" />
+      <param name="swap_yaw_rate" value="true" /> <!-- change to TRUE !!!!!!!!!!!!!!!-->
+      <!-- <remap from="command/rate_thrust" to="input_acceleration_topic" /> -->
+      <!-- <remap from="command/roll_pitch_yawrate_thrust" to="output_roll_pitch_yawrate_thrust_topic" /> -->
+      <param name="eps_explore" value="0.0"/>
+      <param name="noise_x" value="0.0"/>
+      <param name="noise_y" value="0.0"/>
+      <param name="noise_z" value="0.0"/>
+      <rosparam command="load" file="$(find rmf_sim)/rotors/$(arg robot_name).yaml" />
+      <rosparam command="load" file="$(find rmf_sim)/rotors/pid_position_$(arg robot_name).yaml" />
+    </node>
+
+    <!-- RPYrate Thrust controller  -->
+    <node name="roll_pitch_yawrate_thrust_controller_node" pkg="rotors_control" type="roll_pitch_yawrate_thrust_controller_node">
+      <rosparam command="load" file="$(find rmf_sim)/rotors/roll_pitch_yawrate_thrust_controller_$(arg robot_name).yaml" />
+      <rosparam command="load" file="$(find rmf_sim)/rotors/$(arg robot_name).yaml" />
+      <remap from="odometry" to="odometry_sensor1/odometry" />
+    </node>
+
+  </group>
+
+  <group ns="$(arg robot_name_collision_check)">
+    <!-- MAV launch -->
+    <include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+      <arg name="mav_name" value="$(arg robot_name_collision_check)" />
+      <arg name="model" value="$(find rmf_sim)/rotors/urdf/$(arg robot_name_collision_check).gazebo" />
+      <arg name="enable_ground_truth" value="true" />
+      <arg name="x" value="0.0" />
+      <arg name="y" value="-10.0" />
+      <arg name="z" value="20.0" />
+    </include>
+
+    <node name="acc_command_converter" pkg="rotors_control" type="acc_command_converter" output="screen">
+      <remap from="odometry" to="odometry_sensor1/odometry" />
+      <param name="use_vehicle_frame" value="false" />
+      <param name="use_yaw_stabilize" value="true" />
+      <!-- <remap from="command/rate_thrust" to="input_acceleration_topic" /> -->
+      <!-- <remap from="command/roll_pitch_yawrate_thrust" to="output_roll_pitch_yawrate_thrust_topic" /> -->
+      <param name="fixed_height" value="false" />
+      <param name="swap_yaw_rate" value="false" />
+      <param name="eps_explore" value="0.0"/>
+      <param name="noise_x" value="0.0"/>
+      <param name="noise_y" value="0.0"/>
+      <param name="noise_z" value="0.0"/>
+      <rosparam command="load" file="$(find rmf_sim)/rotors/$(arg robot_name).yaml" />
+      <rosparam command="load" file="$(find rmf_sim)/rotors/pid_position_$(arg robot_name).yaml" />
+    </node>
+
+    <!-- RPYrate Thrust controller  -->
+    <node name="roll_pitch_yawrate_thrust_controller_node" pkg="rotors_control" type="roll_pitch_yawrate_thrust_controller_node">
+      <rosparam command="load" file="$(find rmf_sim)/rotors/roll_pitch_yawrate_thrust_controller_$(arg robot_name).yaml" />
+      <rosparam command="load" file="$(find rmf_sim)/rotors/$(arg robot_name).yaml" />
+      <remap from="odometry" to="odometry_sensor1/odometry" />
+    </node>
+
+  </group>
+
+  <!-- Rviz -->
+  <group if="$(arg rviz_en)">
+    <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz" args="-d $(find rmf_sim)/rviz/$(arg robot_name)_sim.rviz" output="screen">
+      <!-- <remap from="goal" to="$(arg robot_name)/goal" /> --> <!-- this rviz use geometry_msgs/PoseStamped instead of geometry_msgs/Pose-->
+    </node>
+  </group>
+
+  <node name="rostopic" pkg="rostopic" type="rostopic" args="pub /delta/goal geometry_msgs/Pose '{position: {x: 0.0, y: 0.0, z: 10.0}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}' -1" />
+  <node name="rostopic2" pkg="rostopic" type="rostopic" args="pub /delta_collision_check/goal geometry_msgs/Pose '{position: {x: 0.0, y: -10.0, z: 20.0}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}' -1" />
+  <param name="robot_description" command="$(find xacro)/xacro $(find rmf_sim)/urdf/rmf.urdf" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+</launch>

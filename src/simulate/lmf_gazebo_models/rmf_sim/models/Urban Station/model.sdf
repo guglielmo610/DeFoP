@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="Urban Station">
+    <static>true</static>
+    <link name="base">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://Urban Station/meshes/station.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://Urban Station/meshes/station.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

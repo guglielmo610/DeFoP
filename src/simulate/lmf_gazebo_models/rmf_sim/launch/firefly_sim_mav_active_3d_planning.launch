@@ -1,0 +1,86 @@
+<launch>
+  <!-- All settings -->
+  <arg name="rosbag_record" value="false" />
+  <arg name="record_path" value="/home/huan/ROSBAGS" />
+  <arg name="robot_name" default="firefly" />
+  <arg name="robot_name_collision_check" default="firefly_collision_check" />
+  <arg name="gazebo_gui_en" default="false" />
+  <arg name="use_sim_time" default="true" />
+  <arg name="rviz_en" default="true" />
+  <arg name="launch_prefix" default="" />
+  <param name="use_sim_time" value="$(arg use_sim_time)" />
+  <env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:~/.gazebo/models:$(find rmf_sim)/models:$(find ign_gazebo_resources)/models/SimpleShapes:$(find ign_gazebo_resources)/models/SubT:$(find ign_gazebo_resources)/models/SubT/Artifacts:$(find ign_gazebo_resources)/models/SubT/CaveCircuit:$(find ign_gazebo_resources)/models/SubT/UrbanCircuit:$(find ign_gazebo_resources)/models/SubT/TunnelCircuit"/>
+  <env name="GAZEBO_RESOURCE_PATH" value="${GAZEBO_RESOURCE_PATH}:$(find rmf_sim)/models:~/.gazebo/models" />
+  
+  <!-- <arg name="world_file" default="/home/huan/projects/learning_planner/rmf_sim_ws/src/ign_gazebo_resources/worlds/SubT/darpa_tunnel_02.world" /> -->
+  <!-- <arg name="world_file" default="/home/huan/projects/deep_collision_predictor/test_corridor.world" /> -->
+  <!-- <arg name="world_file" default="$(find rotors_gazebo)/worlds/basic.world" /> -->
+  <!-- <arg name="world_file" default="$(find rmf_sim)/worlds/corridor_with_obstacles_75.world" /> -->
+  <!-- <arg name="world_file" default="$(find rmf_sim)/worlds/corridor_with_obstacles.world" /> -->
+  <!-- <arg name="world_file" default="$(find rmf_sim)/worlds/random_corridor_3.world" /> -->
+  <!-- <arg name="world_file" default="$(find rmf_sim)/worlds/corridor_with_texture.world" /> -->
+  <!-- <arg name="world_file" default="$(find rmf_sim)/worlds/fjord.world" /> -->
+  <!-- <arg name="world_file" default="$(find rmf_sim)/worlds/urban_station.world" /> -->
+  <!-- <arg name="world_file" default="$(find rmf_sim)/worlds/urban_station_red.world" /> -->
+  <arg name="world_file" default="$(find rmf_sim)/worlds/sim_vsep_dense_env.world" />
+  <!-- <arg name="world_file" default="$(find rmf_sim)/worlds/sim_vsep_sparse_env.world" /> -->
+  <!-- <arg name="world_file" default="$(find rmf_sim)/worlds/vessel_with_tanks_mod.world" /> -->
+  <!-- <arg name="world_file" default="/home/huan/projects/learning_planner/rmf_sim_ws/src/random_world_generator/new.world" /> -->
+  <!-- <arg name="world_file" default="$(find rmf_sim)/worlds/new_easy.world" /> -->
+  <!-- <arg name="world_file" default="$(find rmf_sim)/worlds/eight.world" /> -->
+  <!-- <arg name="world_file" default="$(find rmf_sim)/worlds/test_environment.world" /> -->
+  <!-- <arg name="world_file" default="$(find rmf_sim)/worlds/basic_speedup.world" /> -->
+  <!-- <arg name="world_file" default="$(find rmf_sim)/worlds/maze.world" />   -->
+  <!-- <arg name="world_file" default="/home/huan/deep_learning_code/reinforcement_learning_ws/src/random_world_generator/new.world"/> -->
+  <!-- <arg name="world_file" default="$(find rmf_sim)/worlds/novel_corridor.world" /> -->
+  <!-- <arg name="world_file" default="$(find rmf_sim)/worlds/darpa_urban_01_simple.world" /> -->
+  <!-- <arg name="world_file" default="$(find rmf_sim)/worlds/dense_corridor_v2_with_back.world" /> -->
+  <!-- static_transform_publisher x y z yaw pitch roll frame_id child_frame_id period_in_ms -->
+  <!-- Recording -->
+  <!-- <include if="$(arg rosbag_record)" file="$(find rmf_sim)/launch/rmf_bag_rec.launch" >
+      <arg name="record_path" value="$(arg record_path)"/>
+  </include>     -->
+  <node pkg="tf" type="static_transform_publisher" name="tf_depth" args="0.2 0.0 -0.05 -1.570796 0.0 -1.570796 $(arg robot_name)/base_link $(arg robot_name)/rgbd/camera_depth_optical_center_link 10" />
+  <node pkg="tf" type="static_transform_publisher" name="tf_rgb" args="0.2 0.0 -0.05 -1.570796 0.0 -1.570796 $(arg robot_name)/base_link $(arg robot_name)/rgbd/camera_rgb_optical_center_link 10" />
+  <!-- <node pkg="tf" type="static_transform_publisher" name="tf_1" args="0 0 0 0 0 0 $(arg robot_name)/base_link $(arg robot_name)/$(arg robot_name)/os0 10" />  -->
+  <!-- Robot Stats -->
+  <!-- <include file="$(find rmf_ui)/launch/rmf_ui_sim.launch"/> -->
+  <!-- ROS Gazebo  -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_file)" />
+    <arg name="gui" value="$(arg gazebo_gui_en)" />
+    <arg name="use_sim_time" value="$(arg use_sim_time)" />
+    <arg name="paused" value="false" />
+    <arg name="verbose" value="false" />
+  </include>
+  <group ns="$(arg robot_name)">
+    <!-- <node name="img_throttler" type="throttle" pkg="topic_tools" args="messages vi_sensor/camera_depth/depth/points 5 vi_sensor/camera_depth/depth/points_throttled" /> -->
+    <!-- MAV launch -->
+    <include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+      <arg name="mav_name" value="$(arg robot_name)" />
+      <arg name="model" value="$(find rmf_sim)/rotors/urdf/$(arg robot_name).gazebo" />
+      <arg name="enable_ground_truth" value="true" />
+      <arg name="x" value="3.0" />
+      <arg name="y" value="10.0" />
+      <arg name="z" value="1.0" />
+      <arg name="Y" value="3.14" />
+    </include>
+    
+    <node name="saliencymapVOCUS2" pkg="visual_saliency" type="saliencyDetectionVOCUS2" output="screen">
+      <remap from="/rgbimage_in" to="/firefly/rgbd/camera_rgb/image_raw" />
+      <remap from="/saliency/image_norm" to="/current_mask" />
+      <param name="image_resize_percent" type="double" value="0.25"/>
+      <param name="threshold_percent" type="double" value="0.025" />
+      <!-- <param name="threshold_saliency" type="double" value="0.0018" /> -->
+      <param name="threshold_saliency" type="double" value="0.01" />
+      <param name="topcut_enable" type="bool" value="false" />
+      <param name="topcut_pixels" type="int" value="0" />
+      <param name="time_show" type="bool" value="false" />
+    </node>
+  </group>
+
+  <!--node name="rostopic" pkg="rostopic" type="rostopic" args="pub /delta/goal geometry_msgs/Pose '{position: {x: 3.0, y: 10.0, z: 1.0}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}' -1" /-->
+  <!--node name="rostopic2" pkg="rostopic" type="rostopic" args="pub /delta_collision_check/goal geometry_msgs/Pose '{position: {x: 0.0, y: -10.0, z: 50.0}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}' -1" /-->
+  <!--param name="robot_description" command="$(find xacro)/xacro $(find rmf_sim)/urdf/rmf.urdf" /-->
+  <!--node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /-->
+</launch>
