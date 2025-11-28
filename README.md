@@ -246,7 +246,7 @@ The best results in real world have been obtained with these configuration of we
                                 'model_weights/VAE_EVO_back_to_origin/nett5',
                                 'model_weights/VAE_EVO_back_to_origin/nett6'"
 
-where the both the networks used were fined tuned in this work in a simulated forest enviornment and then converted in tensorRT for optimized results.
+where both the networks used were fined tuned in this work in a simulated forest enviornment and then converted in tensorRT for optimized results.
 All these pretrained weights are available in the folder "model_weights"
 
 ---
@@ -286,7 +286,24 @@ source PATH_TO_defop_ws/devel/setup.bash
 cd PATH_TO_defop_ws/src/planning/ORACLE
 python evaluate/evaluate.py
 ```
-This is the file that contain the majority of change code from the original sevae_ORACLE. In particular, there is the function that stop the drone for 1 second if indecision is detected ("slowdown_action"), the function "deadend_action" that was refined to make the drone rotate in the opposite direction of the closest obtsacle in case of deadend situation. In the end you can find the function "filter_actions_by_grid_3" that is the actual supervisor of the main neural network path planner. This function remove from the motion primitives available for the drone, the actions that will lead to a fast collision. You can modify the parameters "min_dist", "min_ratio", "drone_radius" in case you want to modify the distance threshold from the obstacles, the ratio that represent the precentage of occupancy of an obstacle inside a sector of the image, or the dimension with margin of your drone.
+This file contains the main modifications introduced on top of the original **seVAE_ORACLE** implementation.
+
+- **`slowdown_action`**  
+  Detects indecision in the planner and commands the drone to briefly stop (1 second) to stabilize before continuing.
+
+- **`deadend_action`**  
+  A refined behavior for handling dead-end situations. When a dead end is detected, the drone rotates **away from the closest obstacle**, improving its ability to escape narrow or cluttered areas.
+
+- **`filter_actions_by_grid_3`**  
+  This is the **supervisory layer** on top of the neural network path planner. It filters out any motion primitives that would lead to an imminent collision.
+
+  You can tune the following parameters to adjust the safety constraints:
+  - `min_dist` — minimum allowed distance to obstacles  
+  - `min_ratio` — occupancy ratio threshold defining how much of a sector must be filled before it is considered unsafe  
+  - `drone_radius` — effective size (with margin) of your drone used for collision checks  
+
+These additions significantly improve the robustness and safety of the planner when navigating dense forest environments.
+
 
 ---
 
