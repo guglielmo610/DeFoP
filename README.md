@@ -1,8 +1,10 @@
 # DeFoP: Deep Forest Pilot
 
-Please check out our [wiki](https://github.com/ntnu-arl/ORACLE/wiki) for more details about this work. We describe briefly below the workflow to derive learning-based navigation policies for our drone model.
+This work is based on the paper "Robust Autonomous Navigation of Aerial Robots in Dense Forests Using Learned Motion Evaluation, Depth Refinement, and Real-Time Supervisory Safety Mechanisms"
 
-The VAE code from the paper [Semantically-enhanced Deep Collision Prediction for Autonomous Navigation using Aerial Robots](https://arxiv.org/abs/2307.11522) can be found in [this repo](https://github.com/ntnu-arl/sevae).
+Please consider that this work is build on top of [sevae-ORACLE](https://github.com/ntnu-arl/ORACLE/) that you can check for more details about this work.
+
+The VAE code can be found in [this repo](https://github.com/ntnu-arl/sevae).
 
 ## 1) Setup simulation environment
 
@@ -132,41 +134,177 @@ Change the `world_file` argument in `rmf_sim.launch` to choose the testing envir
 
 ### In SIM
 
-Set `EVALUATE_MODE = True` and `RUN_IN_SIM = True` in `config.py` file.
+## Configuration
 
-Run in one terminal (NOT in `conda` virtual environment)
+```bash
+# In the config.py file, set the following parameters
+PLANNING_TYPE = 1
+EVALUATE_MODE = True
+RUN_IN_SIM = True
+
+# If using CPN's Tensorflow model for inference:
+# Disable TensorRT
+COLLISION_USE_TENSORRT = False
+# Update the path to the weight files (.hdf5)
+seVAE_CPN_TF_CHECKPOINT_PATH = "PATH_TO_HDF5_FILES"
+
+# If using CPN's TensorRT model for inference (recommended for faster speed):
+# Enable TensorRT
+COLLISION_USE_TENSORRT = True
+# Update the path to the TensorRT weight folders (.trt files)
+seVAE_CPN_TRT_CHECKPOINT_PATH = "PATH_TO_TRT_FOLDER"
 ```
+Example config files provided:
+
+- `config_gazebo_corridor_sevae_oracle_naive.py`  
+  *(TensorFlow inference, no Ensembles, no Unscented Transform)*  
+- `config_gazebo_corridor_sevae_oracle.py`  
+  *(TensorRT inference, Deep Ensembles, Unscented Transform)*  
+
+These can be found in the `config_files` folder.  
+You can copy-paste their contents into your `config.py`.
+
+The best results in simulation have been obtained with these configuration of weights:
+
+"seVAE_CPN_TF_CHECKPOINT_PATH = ['model_weights/VAE_EVO_back_to_origin/net1/saved-model.hdf5', # SKIP_STEP_GENERATE = 5, ACTION_HORIZON = 15, VEL_MAX = 2.0 m/s
+                        'models/4/saved-model-70.hdf5',
+                        'models/4/saved-model-20.hdf5'"
+
+where the first network was a pretrained network present already available in sevae-ORACLE and the other 2 were models that were fined tuned in this work in a simulated forest enviornment.
+All these pretrained weights are available in the folder "models"
+
+---
+
+## Run Simulation
+
+### Terminal 1 (NOT inside a conda environment)
+
+```bash
 roslaunch rmf_sim rmf_sim.launch
 ```
 
-In another terminal, run
-```
+### Terminal 2: Run the seVAE node
+
+```bash
 # conda activate oracle_env
-source PATH_TO_lmf_sim_ws/devel/setup.bash
-source PATH_TO_ros_stuff_ws/devel/setup.bash # only if your ROS version < Noetic
+cd PATH_TO_lmf_sim_ws/src/planning/sevae/sevae/inference/src
+python vae_node.py --sim=True
+```
+
+### Terminal 3: Run the CPN node
+
+```bash
+# conda activate oracle_env
+source PATH_TO_defop_ws/devel/setup.bash
+source PATH_TO_ros_stuff_ws/devel/setup.bash   # only if ROS version < Noetic
 python evaluate/evaluate.py
 ```
 
-Wait until you see the green text `START planner` printed out in the second terminal, then call the service to start the planner
+---
+
+## Start the Planner
+
+Wait until you see:
+
 ```
+START planner
+```
+
+printed in the second terminal, then call:
+
+```bash
 rosservice call /start_planner "{}"
 ```
+
+---
+
+## Notes
+
+You can visualize the reconstructed image from the seVAE decoder in RViz by subscribing to:
+
+```
+/decoded_image
+```
+
 
 ### In the real robot (see more info about the robot [here](https://github.com/ntnu-arl/lmf_gazebo_models))
 
-Follow the instructions here: [LMF_ws](https://github.com/ntnu-arl/lmf_ws) to set up the software in the real robot.
+## Configuration to use all the optimized features of DeepForestPilot (based on sevae-ORACLE)
 
-Set `RUN_IN_SIM = False` in `config.py` file. Run
+```bash
+# In the config.py file, set the following parameters
+PLANNING_TYPE = 1
+EVALUATE_MODE = True
+RUN_IN_SIM = False
+COLLISION_USE_TENSORRT = True
+seVAE_CPN_TRT_CHECKPOINT_PATH = "PATH_TO_TRT_FOLDER"
 ```
-# conda activate oracle_env
-source PATH_TO_lmf_ws/devel/setup.bash
+
+The best results in real world have been obtained with these configuration of weights:
+
+"seVAE_CPN_TRT_CHECKPOINT_PATH = ['model_weights/VAE_EVO_back_to_origin/nett5',
+                                'model_weights/VAE_EVO_back_to_origin/nett5',
+                                'model_weights/VAE_EVO_back_to_origin/nett6'"
+
+where the both the networks used were fined tuned in this work in a simulated forest enviornment and then converted in tensorRT for optimized results.
+All these pretrained weights are available in the folder "model_weights"
+
+---
+
+## Run real-time sensors
+
+### Terminal 1 (NOT inside a conda environment)
+
+Here you have to run your autopilot, your camera and your odometry (in my case I generated a launch file that launch together my px4 controller, a realsense d435i and Vins Fusion, together with a bridge between Vins Fusion and the px4 to send the odometry in the Kalman Filter of the autopilot)
+
+## Run real-time softwares
+
+### Terminal 2: Run the real-time depth improver node
+
+```bash
+conda activate oracle_env
+cd PATH_TO_defop_ws/
+python img_filler.py
+```
+
+Inside img_filler.py set the parameters of depth image ros topic "self.sub" and threshold distance "close_pixels"
+
+### Terminal 3: Run the seVAE node
+
+```bash
+conda activate oracle_env
+source PATH_TO_defop_ws/devel/setup.bash
+cd PATH_TO_defop_ws/src/planning/sevae/sevae/inference/src
+python vae_node.py --sim=True
+```
+
+### Terminal 4: Run the CPN node
+
+```bash
+conda activate oracle_env
+source PATH_TO_defop_ws/devel/setup.bash
+cd PATH_TO_defop_ws/src/planning/ORACLE
 python evaluate/evaluate.py
 ```
+This is the file that contain the majority of change code from the original sevae_ORACLE. In particular, there is the function that stop the drone for 1 second if indecision is detected ("slowdown_action"), the function "deadend_action" that was refined to make the drone rotate in the opposite direction of the closest obtsacle in case of deadend situation. In the end you can find the function "filter_actions_by_grid_3" that is the actual supervisor of the main neural network path planner. This function remove from the motion primitives available for the drone, the actions that will lead to a fast collision. You can modify the parameters "min_dist", "min_ratio", "drone_radius" in case you want to modify the distance threshold from the obstacles, the ratio that represent the precentage of occupancy of an obstacle inside a sector of the image, or the dimension with margin of your drone.
 
-Wait until you see the green text `START planner` printed out in your terminal, then call the service to start the planner
+---
+
+## Start the Planner
+
+Wait until you see:
+
 ```
+START planner
+```
+
+printed in the second terminal, then call:
+
+```bash
 rosservice call /start_planner "{}"
 ```
+
+---
 
 ## References
 
