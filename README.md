@@ -1,6 +1,6 @@
 # DeFoP: Deep Forest Pilot
 
-This work is based on the paper "Robust Autonomous Navigation of Aerial Robots in Dense Forests Using Learned Motion Evaluation, Depth Refinement, and Real-Time Supervisory Safety Mechanisms"
+This work is based on the paper "DeFoP: Deep Learning-based Robust Autonomous Navigation of Aerial Robots in Dense Forests"
 
 Please consider that this work is build on top of [sevae-ORACLE](https://github.com/ntnu-arl/ORACLE/) that you can check for more details about this work.
 
