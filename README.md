@@ -6,29 +6,37 @@ The VAE code from the paper [Semantically-enhanced Deep Collision Prediction for
 
 ## 1) Setup simulation environment
 
-Follow the instructions here: [LMF_sim](https://github.com/ntnu-arl/lmf_sim) to set up the simulation workspace. You also need to install the NVIDIA GPU driver, `CUDA toolkit`, and `cudnn` to run Tensorflow on NVIDIA GPU. A typical procedure to install them can be found in [Link](https://medium.com/@pydoni/how-to-install-cuda-11-4-cudnn-8-2-opencv-4-5-on-ubuntu-20-04-65c4aa415a7b), note that the exact versions may change depending on your system.
+## Setup
+
+```bash
+mkdir -p defop_ws/src && cd defop_ws/src
+git clone https://github.com/guglielmo610/DeFoP
+```
+
+## Build
+
+```bash
+sudo apt-get install ros-${ROS_DISTRO}-octomap-msgs ros-${ROS_DISTRO}-octomap-ros
+cd defop_ws
+catkin config -DCMAKE_BUILD_TYPE=Release --blacklist deep_collision_predictor rotors_hil_interface
+catkin build
+```
+
+You also need to install the NVIDIA GPU driver, `CUDA toolkit`, and `cudnn` to run Tensorflow on NVIDIA GPU. A typical procedure to install them can be found in [Link](https://medium.com/@pydoni/how-to-install-cuda-11-4-cudnn-8-2-opencv-4-5-on-ubuntu-20-04-65c4aa415a7b), note that the exact versions may change depending on your system.
 
 Additionally, create a conda environment:
 ```
-# Follow the below procedure if you have CUDA 11
+# Follow the below procedure for CUDA 11+
 conda create -n oracle_env python=3.8 libffi=3.3
 conda activate oracle_env
-cd lmf_sim_ws/src/planning/ORACLE/
+cd defop_ws/src/planning/ORACLE/
 pip install -r requirements_cuda11.txt 
-
-# OR follow the below procedure if you have CUDA 10.1 - cudnn 7.6
-conda create -n oracle_env python=3.7 libffi=3.3
-conda activate oracle_env
-cd lmf_sim_ws/src/planning/ORACLE/
-pip install -r requirements_cuda10_1.txt 
 ```
 
-If you have CUDA 10.1 - cudnn 7.6, follow the instructions [Here](https://docs.nvidia.com/deeplearning/tensorrt/archives/tensorrt-601/tensorrt-install-guide/index.html#installing-tar) to install the TensorRT 6.0.1 python3 wheel file in oracle_env
-
-If you would like to try out seVAE-ORACLE, install additional Python packages in `oracle_env` from [seVAE repo](https://github.com/ntnu-arl/sevae)
+Install additional Python packages in `oracle_env` from [seVAE repo](https://github.com/ntnu-arl/sevae)
 ```
 conda activate oracle_env
-cd lmf_sim_ws/src/planning/sevae
+cd defop_ws/src/planning/sevae
 pip3 install -e .
 ```
 
@@ -66,13 +74,10 @@ Set `EVALUATE_MODE = False` and `RUN_IN_SIM = True` in `config.py` file.
 
 Run in one terminal (NOT in `conda` virtual environment)
 ```
-# for ORACLE or A-ORACLE
-roslaunch rmf_sim rmf_sim.launch
-# OR for seVAE-ORACLE
 roslaunch rmf_sim rmf_sim_sevae.launch
 ```
 
-Open another terminal, source `lmf_sim_ws` workspace and run inside `deep_collision_predictor` folder (**Note**: remember to set `PLANNING_TYPE=1` in `config.py` for seVAE-ORACLE!)
+Open another terminal, source `defop_ws` workspace and run inside `deep_collision_predictor` folder (**Note**: remember to set `PLANNING_TYPE=1` in `config.py`)
 ```
 # conda activate oracle_env
 python generate/generate_data_info_gain.py --save_path=path_to_folder
@@ -82,21 +87,6 @@ If `--save_path` is not specified, the default path in `common_flags.py` is used
 
 ## 3) Process the training data:
 
-### ORACLE and A-ORACLE
-Set `TRAIN_INFOGAIN = False` (for generating ORACLE data) or `True` (for labeling A-ORACLE data with Voxblox) in `config.py` file.
-
-If labeling data for A-ORACLE, we need to run in one terminal (NO need to run this for ORACLE)
-```
-roslaunch voxblox_ros voxblox_gazebo.launch
-```
-
-In another terminal, run
-```
-# conda activate oracle_env
-python process/data_processing.py --load_path=path_to_folder --save_tf_path=path_to_folder
-```
-
-### seVAE-ORACLE
 Run the script in seVAE [repo](https://github.com/ntnu-arl/sevae) to create the `di_latent.p` and `di_flipped_latent.p` pickle files. Put the latent pickles in the same folder as the other pickle files in step 2 above.
 
 Then run
@@ -109,24 +99,11 @@ If `--load_path` or `--save_tf_path` is not specified, the default path in `comm
 The tfrecord files created from `data_processing.py` are saved in `save_tf_path`. \
 Split the tfrecord files into 2 folders for training and validation (80/20 ratio).
 
-## 4) Train the network:
+## 4) Train the collision prediction network:
 
-Train ORACLE (collision prediction):
-```
-# conda activate oracle_env
-python train/training.py --training_type=0 --train_tf_folder=path_to_folder --validate_tf_folder=path_to_folder --model_save_path=path_to_folder
-```
-
-Train seVAE-ORACLE (collision prediction):
 ```
 # conda activate oracle_env
 python train/training.py --training_type=1 --train_tf_folder=path_to_folder --validate_tf_folder=path_to_folder --model_save_path=path_to_folder
-```
-
-or train Attentive ORACLE (info-gain prediction):
-```
-# conda activate oracle_env
-python train/training.py --training_type=2 --train_tf_folder=path_to_folder --validate_tf_folder=path_to_folder --model_save_path=path_to_folder
 ```
 
 If `--train_tf_folder` or `--validate_tf_folder` or `--model_save_path` is not specified, the default path in `common_flags.py` is used.
@@ -137,36 +114,11 @@ If `--train_tf_folder` or `--validate_tf_folder` or `--model_save_path` is not s
 
 Set the path to the .hdf5 file using `--checkpoint_path` when calling python scripts in `optimize` folder. The resulting .trt or .onnx files will be created in the main folder of this package.
 
-### ORACLE
-
-```
-# conda activate oracle_env
-python3 optimize/convert_keras_cnn_to_tensorrt_engine.py --checkpoint_path=PATH_TO_HDF5_FILE
-python3 optimize/convert_keras_combiner_tensorrt_engine.py --checkpoint_path=PATH_TO_HDF5_FILE
-python3 optimize/convert_keras_rnn_to_tensorrt_engine.py --checkpoint_path=PATH_TO_HDF5_FILE
-```
-
-### seVAE-ORACLE
-
 ```
 # conda activate oracle_env
 python3 optimize/convert_keras_combiner_tensorrt_engine_sevae.py --checkpoint_path=PATH_TO_HDF5_FILE
 python3 optimize/convert_keras_rnn_to_tensorrt_engine_sevae.py --checkpoint_path=PATH_TO_HDF5_FILE
 ```
-
-### Attentive ORACLE
-
-```
-# conda activate oracle_env
-python3 optimize/convert_keras_infogain_cnn_to_tensorrt_engine.py --checkpoint_path=PATH_TO_HDF5_FILE
-python3 optimize/convert_keras_infogain_predictor_to_tensorrt_engine.py --checkpoint_path=PATH_TO_HDF5_FILE
-```
-or for predicting the information gain of only one step in every ... step in the future (use `SKIP_STEP_INFERENCE_INFOGAIN` param in `config.py`):
-```
-# conda activate oracle_env
-python3 optimize/convert_keras_infogain_predictor_to_tensorrt_engine_light_inference.py --checkpoint_path=PATH_TO_HDF5_FILE
-```
-This can lead to even faster inference speed but will hurt the performance (`SKIP_STEP_INFERENCE_INFOGAIN = 2 or 4` is recommended).
 
 ## 6) Evaluate the planner
 
