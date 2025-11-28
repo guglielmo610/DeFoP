@@ -172,38 +172,26 @@ rosservice call /start_planner "{}"
 
 If you use this work in your research, please cite the following publications:
 
-**Motion Primitives-based Navigation Planning using Deep Collision Prediction**
+
+**Autonomous Drone Navigation in Forest Environments Using Deep Learning**
 
 ```
-@INPROCEEDINGS{Nguyen2022ORACLE,
-  author={Nguyen, Huan and Fyhn, Sondre Holm and De Petris, Paolo and Alexis, Kostas},
-  booktitle={2022 International Conference on Robotics and Automation (ICRA)}, 
-  title={Motion Primitives-based Navigation Planning using Deep Collision Prediction}, 
-  year={2022},
-  volume={},
-  number={},
-  pages={9660-9667},
-  doi={10.1109/ICRA46639.2022.9812231}}
-```
-
-**thesis**
-
-```
-@INPROCEEDINGS{kulkarni2023semanticallyenhanced,
-  author={Kulkarni, Mihir and Nguyen, Huan and Alexis, Kostas},
-  booktitle={2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}, 
-  title={Semantically-Enhanced Deep Collision Prediction for Autonomous Navigation Using Aerial Robots}, 
-  year={2023},
-  volume={},
-  number={},
-  pages={3056-3063},
-  doi={10.1109/IROS55552.2023.10342297}}
+@Article{DelCol2025Autonomous,
+AUTHOR = {Del Col, G. and Karjalainen, V. and Hakala, T. and Honkavaara, E.},
+TITLE = {Autonomous Drone Navigation in Forest Environments Using Deep Learning},
+JOURNAL = {The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences},
+VOLUME = {XLVIII-2/W11-2025},
+YEAR = {2025},
+PAGES = {87--93},
+URL = {https://isprs-archives.copernicus.org/articles/XLVIII-2-W11-2025/87/2025/},
+DOI = {10.5194/isprs-archives-XLVIII-2-W11-2025-87-2025}
+}
 ```
 
 **Robust Autonomous Navigation of Aerial Robots in Dense Forests Using Learned Motion Evaluation, Depth Refinement, and Real-Time Supervisory Safety Mechanisms**
 
 ```
-
+Publication ongoing
 ```
 
 ## Contact
