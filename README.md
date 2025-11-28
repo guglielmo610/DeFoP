@@ -130,7 +130,7 @@ If using Tensorflow model for inference, set `COLLISION_USE_TENSORRT = False` or
 
 If using TensorRT model for inference, set `COLLISION_USE_TENSORRT = True` or `INFOGAIN_USE_TENSORRT = True` in `config.py` file and update the path to the weight folders (containing .trt files) in `config.py`. **Note**: for multi-GPU systems, you may need to `export CUDA_VISIBLE_DEVICES=0` to run TensorRT, otherwise you can get some runtime errors.
 
-Change the `world_file` argument in `rmf_sim.launch` to choose the testing environment. We provide some testing environments in `rmf_sim/worlds` folder. Additionally, set `rviz_en` to `true` in `rmf_sim.launch` for visualization of the network's prediction. Please refer to the [wiki](https://github.com/ntnu-arl/ORACLE/wiki) for detailed instructions to run the demo simulations as well as documentation of parameters in `config.py`.
+Change the `world_file` argument in `rmf_sim.launch` to choose the testing environment. We provide some testing environments in `rmf_sim/worlds` folder. Additionally, set `rviz_en` to `true` in `rmf_sim.launch` for visualization of the network's prediction. Please refer to the [wiki](https://github.com/ntnu-arl/ORACLE/wiki) present in the ORACLE project for detailed instructions to run the demo simulations as well as documentation of parameters in `config.py`.
 
 ### In SIM
 
